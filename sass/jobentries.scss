@@ -1,0 +1,32 @@
+div.jobentry {
+	padding: 2rem 0rem;
+
+	.logo {
+		display:block;
+		width: 8rem;
+		height: 4rem;
+		float: left;
+		margin-right: 2rem;
+
+		&.esa {
+			background: #FFF url('http://upload.wikimedia.org/wikipedia/fr/f/fa/Logo_ESA.png') no-repeat 0 0 / 8rem auto;
+		}
+	}
+
+	h3.title {
+		font-family: Georgia, serif;
+		font-weight: bold;
+		font-size: 1.1rem;
+		display: inline;
+	}
+
+	.location:after {
+		font-family: 'FontAwesome';
+		content: "\f041";
+		padding-left: 0.3rem;
+	}
+
+	.description {
+		text-align: justify;
+	}
+}

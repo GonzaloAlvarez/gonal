@@ -1,0 +1,10 @@
+{
+  "name": "HomeSite",
+  "version": "1.0.0",
+  "description": "GonzaloAlvarez.Es site",
+  "private": true,
+  "dependencies": {
+    "fontawesome": "~4.2.0",
+    "open-sans-fontface": "~1.1.0"
+  }
+}

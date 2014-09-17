@@ -1,0 +1,56 @@
+.avatar {
+    border: solid 4px #32cdfb;
+    border-left-color:#abe9fb;
+    padding:2px;
+    display:inline-block;
+    border-radius: 50%;
+    position:relative;
+
+    @include rotate(45deg);
+
+	&:before {
+		height:4px;
+		top:50%;
+		left:2px; 
+		right:-5px;
+		margin-top:-2px;
+	}
+
+	&:after {
+		width:4px;
+		left:50%;
+		top:2px; 
+		bottom:-5px;
+		margin-left:-2px;
+	}
+
+	&:before, &:after {
+		content:'';
+		position: absolute;
+		background: #FFF;
+		z-index: -1;
+
+		@include rotate(-45deg);
+	}
+
+
+	span {
+		background: #FFF url('https://lh3.googleusercontent.com/-NUWBZnU54lY/UcQZ1vjE_cI/AAAAAAAAFa8/BZ1NnlJJspc/s0-U-I/ayg_0433.jpg') no-repeat 0 0 / 8rem auto;
+		width: 8rem;
+		height: 8rem;
+		display:block;
+		overflow: hidden;
+		border-radius: 50%;
+		width: 8rem;
+
+		@include rotate(-45deg);
+	}
+	
+	img {
+		display:block;
+		border-radius: 50%;
+		width: 8rem;
+
+		@include rotate(-45deg);
+	}
+}
