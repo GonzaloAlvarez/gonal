@@ -1,3 +1,11 @@
+// SCSS GonAl project - Containers definition file
+//
+// Gonzalo Alvarez, 2014
+// Work licensed under
+// Creative Commons Attributions-NonCommercial-NoDerivaties 4.0 International License
+// See: http://creativecommons.org/licenses/by-nc-nd/4.0/
+//
+
 .box {
 	margin: 2rem auto;
 	overflow: hidden;
@@ -31,6 +39,17 @@
 
 .container {
 	float:left;
+	padding-top: 1rem;
+
+	&.fullwidth {
+		width: 100%;
+	}
+
+	.grid_50 {
+		width: 48%;
+		margin-right: 2%;
+		float: left;
+	}
 
 	@media only screen and (max-device-width: 500px){
 		width: 100%;
