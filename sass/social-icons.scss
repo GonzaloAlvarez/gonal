@@ -12,7 +12,7 @@
 
 	li {
 		display: inline-block;
-		@media screen and(min-width: 350px) {
+		@media screen and(min-device-width: $smallScreenMaxWidth) {
 			padding-right: 0.26315rem;
 		}
 		padding-left: 0.26315rem;
@@ -48,7 +48,12 @@
 	.fa-twitter{background-color:#32CCFE;}
 	.fa-linkedin{background-color:#0085AE;}
 	.fa-facebook{background-color:#3C599F;}
-	.fa-github{background-color:#6cc644;}
+	.fa-github{
+		background-color:#6cc644;
+		@media screen and(max-device-width: $smallScreenMaxWidth) {
+			display: none;
+		}
+	}
 	.fa-wordpress{background-color:#d54e21;}
 	.fa-rss{background-color:#f26522;}
 }

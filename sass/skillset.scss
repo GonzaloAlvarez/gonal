@@ -1,0 +1,93 @@
+// SCSS GonAl project - Skillset variables
+//
+// Gonzalo Alvarez, 2014
+// Work licensed under
+// Creative Commons Attributions-NonCommercial-NoDerivaties 4.0 International License
+// See: http://creativecommons.org/licenses/by-nc-nd/4.0/
+//
+
+.skillset {
+	ul {
+		list-style: none;
+		padding: 0;
+
+		li.bar {
+			position: relative;
+			margin-bottom: 1.5rem;
+			margin-right: 1rem;
+			background: #bdc3c7;
+			height: 1.7rem;
+			border-radius: 3px;
+			overflow: hidden;
+			padding-left: 1rem;
+			padding-top: 0.4rem;
+			color: white;
+			font-size: 0.9rem;
+	
+			span.progress {
+				position: absolute;
+				left: 0;
+				top: 0;
+				margin: 0;
+				background: #3B5998;
+				display: inline-block;
+				height: 2.1rem;
+				line-height: 2.1rem;
+				border-radius: 3px 0 0 3px;
+			}
+	
+			span.p90 {
+				width: 90%;
+			}
+	
+			span.p80 {
+				width: 80%;
+			}
+	
+			span.p75 {
+				width: 75%;
+			}
+	
+			span.text {
+				position:relative;
+			}
+		}
+
+		li.brick {
+			border-radius: 3px;
+			line-height: 0.7rem;
+			font-size: 0.8rem;
+			color: #fff;
+			text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+			white-space: nowrap;
+			vertical-align: baseline;
+			background-color: #999;
+			display: inline-block;
+			padding: 0.4rem 0.5rem 0.6rem 0.5rem;
+			margin: 0 0.3rem 0.6rem 0;
+		}
+	}
+
+	.title {
+		text-transform: uppercase;
+		color: #3B5998;
+		font-family: 'Lato', sans-serif;
+		margin-bottom: 0.25rem;
+	}
+
+	.title-wrapper {
+		margin-bottom: 1rem;
+		border-bottom: 1px solid #DDD;
+	}
+
+	.title-wrapper:after {
+		height: 1px;
+		display: block;
+		left: 0;
+		content: " ";
+		position: relative;
+		width: 30px;
+		top: 1px;
+		background: #3B5998;
+	}
+}

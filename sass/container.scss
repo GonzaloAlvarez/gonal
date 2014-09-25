@@ -14,11 +14,17 @@
 	display:block;
 	padding: 2rem;
 
+	@media only screen and (max-device-width: $smallScreenMaxWidth){
+		padding: 1rem;
+	}
+
 	@include box-shadow(3px 3px 5px 3px #888888);
-	@include border-radius(5px);
+	@media only screen and (min-device-width: $mediumScreenMaxWidth+1){
+		@include border-radius(5px);
+	}
 
 	&.profile {
-		@media only screen and (max-device-width: 500px){
+		@media only screen and (max-device-width: $smallScreenMaxWidth){
 			text-align: center;
 		}
 	}
@@ -27,6 +33,11 @@
 		margin-top: -2rem;
 		margin-left: -2rem;
 		margin-right: -2rem;
+		@media only screen and (max-device-width: $smallScreenMaxWidth){
+			margin-top: -1rem;
+			margin-left: -1rem;
+			margin-right: -1rem;
+		}
 		padding: 0.8rem;
 		background-color: #32cdfb;
 		color: white;
@@ -46,12 +57,14 @@
 	}
 
 	.grid_50 {
-		width: 48%;
-		margin-right: 2%;
-		float: left;
+		@media only screen and (min-device-width: $mediumScreenMaxWidth+1){
+			width: 48%;
+			margin-right: 2%;
+			float: left;
+		}
 	}
 
-	@media only screen and (max-device-width: 500px){
+	@media only screen and (max-device-width: $smallScreenMaxWidth){
 		width: 100%;
 		margin: 0 auto;
 	}
@@ -60,7 +73,7 @@
 .info {
 	padding-top: 2rem;
 
-	@media screen and (min-width: 500px) {
+	@media screen and (min-width: $smallScreenMaxWidth) {
 		padding-left: 1rem;
 	}
 
@@ -81,12 +94,12 @@
 }
 
 .social {
-	@media screen and (min-width: 500px) {
+	@media screen and (min-width: $smallScreenMaxWidth) {
 		padding-left: 2rem;
 		max-width: 13rem;
 	}
 
-	@media only screen and (max-device-width: 500px){
+	@media only screen and (max-device-width: $smallScreenMaxWidth){
 		width: 100%;
 	}
 

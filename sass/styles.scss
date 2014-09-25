@@ -24,17 +24,22 @@ a {
 	color: #02baef;
 }
 
-@for $i from 0 through 10 {
-	@media screen and(min-width: 500px + $i * 50) {
-		html {
-			font-size: 9px + $i;
-		}
+
+@media screen and(max-device-width: $smallScreenMaxWidth) {
+	html {
+		font-size: 13px;
 	}
 }
 
-@media screen and(max-device-width: 500px) {
+@media screen and(max-device-width: $mediumScreenMaxWidth) {
 	html {
-		font-size: 13px;
+		font-size: 16px;
+	}
+}
+
+@media screen and(min-device-width: $mediumScreenMaxWidth) {
+	html {
+		font-size: 19px;
 	}
 }
 
