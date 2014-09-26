@@ -9,8 +9,8 @@
 .box {
 	margin: 2rem auto;
 	overflow: hidden;
-	max-width: 50rem;
-	background-color:white;
+	max-width: $boxMaxWidth;
+	background-color: white;
 	display:block;
 	padding: 2rem;
 

@@ -26,7 +26,7 @@ module.exports = function(grunt) {
 				options: {
 					livereload: true
 				},
-				files: ['**/*.{scss,sass}', 'static/*'],
+				files: ['**/*.{scss,sass}', 'static/*', 'static/img/*'],
 				tasks: ['prod']
 			}
 		},
@@ -57,12 +57,12 @@ module.exports = function(grunt) {
 			}
 		},
 		htmlmin: {
-			html: {
+			home: {
 				options: {
 					removeComments: true,
 					collapseWhitespace: true
 				},
-				files: {'build/live/index.html': 'static/*.html'}
+				files: {'build/live/index.html': 'build/live/*.html'}
 			}
 		},
 		cssmin: {
@@ -94,7 +94,18 @@ module.exports = function(grunt) {
 					livereload: false
 				}
 			}
+		},
+		assemble: {
+			options: {
+				flatten: true,
+				partials: ['hbs/partials/**/*.hbs']
+			},
+			home: {
+				src: ['hbs/home/index.hbs'],
+				dest: 'build/live/'
+			}
 		}
+
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-compass');
@@ -106,9 +117,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-htmlmin');
 	grunt.loadNpmTasks('grunt-contrib-csslint');
 	grunt.loadNpmTasks('grunt-htmlhint');
+	grunt.loadNpmTasks('assemble');
 
 	grunt.registerTask('default',['prod', 'connect:server','watch']);
-	grunt.registerTask('shared',['clean', 'compass', 'copy:fontawesome', 'copy:opensans', 'copy:statics']);
+	grunt.registerTask('shared',['clean', 'compass', 'copy:fontawesome', 'copy:opensans', 'copy:statics', 'assemble']);
 	grunt.registerTask('dev',['shared', 'copy:styles_dev']);
 	grunt.registerTask('prod',['shared', 'cssmin', 'htmlmin']);
 	grunt.registerTask('check',['prod', 'csslint', 'htmlhint']);
