@@ -26,7 +26,7 @@ module.exports = function(grunt) {
 				options: {
 					livereload: true
 				},
-				files: ['**/*.{scss,sass}', 'static/*', 'static/img/*'],
+				files: ['**/*.{scss,sass}', 'static/*', 'static/img/*', 'hbs/**/*'],
 				tasks: ['prod']
 			}
 		},
@@ -98,6 +98,7 @@ module.exports = function(grunt) {
 		assemble: {
 			options: {
 				flatten: true,
+				data: ['hbs/data/**/*.{json,yml}'],
 				partials: ['hbs/partials/**/*.hbs']
 			},
 			home: {

@@ -9,7 +9,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>Gonzalo Alvarez - Software Engineer</title>
+	<title>{{ home.fullname }} - {{ home.shorttitle }}</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link href='css/styles.css' rel='stylesheet' type='text/css'>
@@ -24,17 +24,14 @@
 		</div>
 
 		<div class="info container">
-			<h1>Gonzalo Alvarez</h1>
-			<h2>Software Development Engineer</h2>
+			<h1>{{ home.fullname }}</h1>
+			<h2>{{ home.fulltitle }}</h2>
 		</div>
 		<div class="social">
 			<ul class="social-icons">
-				<li> <a href="#"><i class="fa fa-envelope"></i></a> </li>
-				<li> <a href="#"><i class="fa fa-wordpress"></i></a></li>
-				<li> <a href="#"><i class="fa fa-linkedin"></i></a></li>
-				<li> <a href="#"><i class="fa fa-twitter"></i></a></li>
-				<li> <a href="#"><i class="fa fa-facebook"></i></a></li>
-				<li> <a href="#"><i class="fa fa-github"></i></a></li>
+				{{#each social.icons}}
+					<li><a href="{{ href }}"><span class="fa fa-{{ icon }}"></span></a></li>
+				{{/each}}
 			</ul>
 		</div>
 	</div>
