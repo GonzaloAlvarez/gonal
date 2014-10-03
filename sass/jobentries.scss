@@ -6,32 +6,89 @@
 // See: http://creativecommons.org/licenses/by-nc-nd/4.0/
 //
 
-div.jobentry {
-	padding: 1rem 0rem;
+.jobentry {
+	padding-bottom: 1rem;
+	border-bottom: 1px solid #edeff0;
+
+	&:last-child {
+		border-bottom: 0px;
+	}
 
 	.logo {
 		display:block;
-		width: 8rem;
+		width: 7rem;
 		height: 4rem;
 		float: left;
 		margin-right: 2rem;
 
 		&.esa {
-			background: #FFF url('http://upload.wikimedia.org/wikipedia/fr/f/fa/Logo_ESA.png') no-repeat 0 0 / 8rem auto;
+			background: #FFF url('http://upload.wikimedia.org/wikipedia/fr/f/fa/Logo_ESA.png') no-repeat 0 0 / 7rem auto;
+		}
+
+		&.tsl {
+			background: #FFF url('http://upload.wikimedia.org/wikipedia/fr/f/fa/Logo_ESA.png') no-repeat 0 0 / 7rem auto;
+		}
+
+		&.amazon {
+			background: #FFF url('http://upload.wikimedia.org/wikipedia/fr/f/fa/Logo_ESA.png') no-repeat 0 0 / 7rem auto;
+		}
+
+		&.uvigo {
+			background: #FFF url('http://upload.wikimedia.org/wikipedia/fr/f/fa/Logo_ESA.png') no-repeat 0 0 / 7rem auto;
 		}
 	}
 
-	h3.title {
-		font-family: Georgia, serif;
+	.title {
+		color: #3B5998;
+		margin-left: 9rem;
+		margin-top: 1rem;
+		margin-bottom: 1.8rem;
+		font-family: Helvetica,Arial,sans-serif;
+		font-weight: normal;
+		font-size: 0.9rem;
+		display: block;
+		overflow:hidden;
+	}
+
+	.position {
+		float: left;
+		margin-bottom: 0.3rem;
 		font-weight: bold;
-		font-size: 1.1rem;
-		display: inline;
+	}
+
+	.dates {
+		float: right;
+	}
+
+	.dates:after {
+		font-family: 'FontAwesome';
+		content: "\f073";
+		padding-left: 0.3rem;
+	}
+
+	.company {
+		float: left;
+		clear: left;
+	}
+
+	.location {
+		float: right;
+		clear: right;
 	}
 
 	.location:after {
 		font-family: 'FontAwesome';
 		content: "\f041";
 		padding-left: 0.3rem;
+	}
+
+	.line {
+		clear:both;
+		width: 100%;
+		height: 1px;
+		background-color: #3B5998;
+		display: block;
+		margin: 0.3rem 0;
 	}
 
 	.description {
