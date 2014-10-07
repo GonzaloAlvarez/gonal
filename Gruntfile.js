@@ -98,12 +98,13 @@ module.exports = function(grunt) {
 		assemble: {
 			options: {
 				flatten: true,
-				data: ['hbs/data/**/*.{json,yml}'],
-				partials: ['hbs/partials/**/*.hbs']
+				data: ['src/data/**/*.{json,yml}'],
+				helpers: ['handlebars-helper-md'],
+				partials: ['src/partials/**/*.hbs', 'src/content/*.md']
 			},
 			home: {
-				src: ['hbs/home/index.hbs'],
-				dest: 'build/live/'
+				src: ['src/home.hbs'],
+				dest: 'build/live/index.html'
 			}
 		}
 

@@ -17,7 +17,6 @@
     "grunt-contrib-htmlmin": "^0.3.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-htmlhint": "^0.4.1",
-    "handlebars-helpers": "^0.5.8",
-    "time-grunt": "^1.0.0"
+    "handlebars-helper-md": "^0.2.0"
   }
 }
