@@ -7,7 +7,7 @@
 //
 
 .box {
-	margin: 2rem auto;
+	margin: 2rem 0.5rem;
 	overflow: hidden;
 	max-width: $boxMaxWidth;
 	background-color: white;
@@ -18,15 +18,14 @@
 		padding: 1rem;
 	}
 
-	@include box-shadow(3px 3px 5px 3px #888888);
+	@include box-shadow(2px 2px 4px 2px #888888);
 	@media only screen and (min-device-width: $mediumScreenMaxWidth+1){
-		@include border-radius(5px);
+		@include border-radius(2px);
+		margin: 2rem auto;
 	}
 
-	&.profile {
-		@media only screen and (max-device-width: $smallScreenMaxWidth){
-			text-align: center;
-		}
+	@media only screen and (max-device-width: $smallScreenMaxWidth){
+		text-align: center;
 	}
 
 	.header {
@@ -37,6 +36,7 @@
 			margin-top: -1rem;
 			margin-left: -1rem;
 			margin-right: -1rem;
+			text-align: left;
 		}
 		padding: 0.8rem;
 		background-color: #32cdfb;

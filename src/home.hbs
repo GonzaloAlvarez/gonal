@@ -40,12 +40,12 @@
 			<span class="fa fa-briefcase"></span> 
 			Professional Experience
 		</div>
-		<div class="container">
-			{{#each home.jobs}}
-				<div class="jobentry">
+		<div class="container fullwidth">
+			{{#each jobs.list}}
+				<div class="entry">
 					<a href="#" class="logo {{ this.logo }}"></a>
 					<h4 class="title">
-						<span class="position">{{ this.position }}</span>
+						<span class="main">{{ this.position }}</span>
 						<span class="dates">{{this.dates}}</span>
 						<span class="line"></span>
 						<a href="#" class="company">{{this.company}}</a>
@@ -63,7 +63,22 @@
 			<span class="fa fa-graduation-cap"></span> 
 			Education
 		</div>
-		<div class="container">
+		<div class="container fullwidth">
+			{{#each edu.list}}
+				<div class="entry">
+					<a href="#" class="logo {{ this.logo }}"></a>
+					<h4 class="title">
+						<span class="main">{{ this.description }}</span>
+						<span class="dates">{{this.dates}}</span>
+						<span class="line"></span>
+						<a href="#" class="company">{{this.company}}</a>
+						<a href="#" class="location">{{this.location}}</a>
+					</h4>
+					<div class="description">
+						{{md this.content }}
+					</div>
+				</div>
+			{{/each}}
 		</div>
 	</div>
 	<div class="box">

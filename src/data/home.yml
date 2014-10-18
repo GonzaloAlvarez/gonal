@@ -2,10 +2,3 @@
 fullname: 'Gonzalo Alvarez'
 shorttitle: 'Software Engineer'
 fulltitle: 'Software Development Engineer'
-jobs: 
-  - content: 'src/content/job_esa.md'
-    logo: 'esa'
-    position: 'Ground Segment Software Engineer'
-    dates: '2007-2010'
-    company: 'European Space Agency'
-    location: 'Darmstadt, Germany'
