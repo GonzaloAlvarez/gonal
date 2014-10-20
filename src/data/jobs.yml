@@ -2,7 +2,6 @@
 list: 
   - content: 'src/content/job_esa.md'
     logo: 'esa'
-    position: 'Ground Segment Software Engineer'
+    name: 'Ground Segment Software Engineer'
     dates: '2007-2010'
-    company: 'European Space Agency'
-    location: 'Darmstadt, Germany'
+    centre: 'European Space Agency'

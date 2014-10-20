@@ -1,0 +1,71 @@
+// SCSS GonAl project - CV Entries definitions
+//
+// Gonzalo Alvarez, 2014
+// Work licensed under
+// Creative Commons Attributions-NonCommercial-NoDerivaties 4.0 International License
+// See: http://creativecommons.org/licenses/by-nc-nd/4.0/
+//
+
+.cventry {
+	padding-bottom: 0.5rem;
+	border-bottom: 1px solid #edeff0;
+	margin-bottom: 1rem;
+	overflow: hidden;
+
+	&:last-child {
+		border-bottom: 0;
+		margin-bottom: 0;
+	}
+
+	p {
+		margin-top: 0.5rem;
+		font-size: 0.9rem;
+		line-height: 1.2rem;
+		text-align: justify;
+	}
+
+	.achievement {
+		width: 40rem;
+		float: left;
+
+		h3 {
+			margin: 0;
+			font-size: 1.1rem;
+			line-height: 1.6rem;
+			font-weight: 600;
+		}
+
+		h4 {
+			margin: 0;
+			font-style: italic;
+			font-size: 1rem;
+			line-height: 1.2rem;
+			font-weight: 600;
+		}
+
+		.logo {
+			display: block;
+			width: 5rem;
+			height: 3rem;
+			float: right;
+			margin-right: 0.2rem;
+			margin-top: 0.2rem;
+
+			.esa {
+				background: url(http://upload.wikimedia.org/wikipedia/fr/f/fa/Logo_ESA.png) 0 0/5rem auto no-repeat #FFF;
+			}
+
+			.md {
+				background: url(http://i.imgur.com/YBMVdep.png) 0rem 0rem/2.3rem auto no-repeat #FFF;
+			}
+		}
+	}
+
+	.dates {
+		width: 8rem;
+		float: left;
+		font-weight: 600;
+		font-size: 0.9rem;
+		line-height: 1.5rem;
+	}
+}

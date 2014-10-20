@@ -17,6 +17,7 @@
 body {
 	background-color: #efefef;
 	font-family: 'Open Sans', sans-serif;
+	background: url(http://i.imgur.com/4NSdHLp.png);
 }
 
 a {
@@ -30,20 +31,14 @@ a {
 	}
 }
 
-@media screen and(max-device-width: $mediumScreenMaxWidth) {
+@media screen and(min-width: $mediumScreenMaxWidth) {
 	html {
 		font-size: 16px;
-	}
-}
-
-@media screen and(min-device-width: $mediumScreenMaxWidth) {
-	html {
-		font-size: 19px;
 	}
 }
 
 @import "avatar";
 @import "container";
 @import "social-icons";
-@import "entries";
+@import "cventry";
 @import "skillset";

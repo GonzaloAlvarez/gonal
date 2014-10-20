@@ -1,8 +1,7 @@
 ---
 list: 
   - content: 'src/content/edu_teleco.md'
-    logo: 'uvigo'
-    description: 'Masters Degree in Telecom Engineering'
+    logo: 'md'
+    name: 'Masters Degree in Telecom Engineering'
     dates: '2000-2006'
-    company: 'Vigo University'
-    location: 'Vigo, Spain'
+    centre: 'Vigo University'
