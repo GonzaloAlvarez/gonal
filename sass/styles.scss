@@ -17,7 +17,9 @@
 body {
 	background-color: #efefef;
 	font-family: 'Open Sans', sans-serif;
-	background: url(http://i.imgur.com/4NSdHLp.png);
+	@media screen and(min-width: $mediumScreenMaxWidth) {
+		background: url(http://i.imgur.com/4NSdHLp.png);
+	}
 }
 
 a {
@@ -27,7 +29,7 @@ a {
 
 @media screen and(max-device-width: $smallScreenMaxWidth) {
 	html {
-		font-size: 13px;
+		font-size: 14px;
 	}
 }
 

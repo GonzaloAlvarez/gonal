@@ -5,3 +5,8 @@ list:
     name: 'Ground Segment Software Engineer'
     dates: '2007-2010'
     centre: 'European Space Agency'
+  - content: 'src/content/job_esa.md'
+    logo: 'esa'
+    name: 'Ground Segment Software Engineer'
+    dates: '2007-2010'
+    centre: 'European Space Agency'

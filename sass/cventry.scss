@@ -11,6 +11,7 @@
 	border-bottom: 1px solid #edeff0;
 	margin-bottom: 1rem;
 	overflow: hidden;
+	text-align: left;
 
 	&:last-child {
 		border-bottom: 0;
@@ -18,19 +19,56 @@
 	}
 
 	p {
-		margin-top: 0.5rem;
+		margin-top: 1rem;
 		font-size: 0.9rem;
 		line-height: 1.2rem;
 		text-align: justify;
+		display: block;
+		clear: both;
+		@media screen and(min-width: $mediumScreenMaxWidth) {
+			margin-left: 8rem;
+		}
+	}
+
+	.logo {
+		@media screen and(min-width: $mediumScreenMaxWidth) {
+			float: right;
+			width: 5rem;
+			height: 3rem;
+
+			&.esa {
+				background: url(http://upload.wikimedia.org/wikipedia/fr/f/fa/Logo_ESA.png) 0 0/5rem auto no-repeat #FFF;
+			}
+		}
+
+		@media screen and(max-width: $mediumScreenMaxWidth) {
+			float: left;
+			width: 4rem;
+			height: 4rem;
+			margin-right: 0.5rem;
+
+			&.esa {
+				background: url(https://lh4.googleusercontent.com/-kKIsl4pNq5g/AAAAAAAAAAI/AAAAAAAAdDw/Al6bcQPJg6I/s120-c/photo.jpg) 0 0/4rem auto no-repeat #FFF;
+			}
+
+			&.md {
+				background: url(http://i.imgur.com/YBMVdep.png) 0rem 0rem/4rem auto no-repeat #FFF;
+			}
+		}
 	}
 
 	.achievement {
-		width: 40rem;
-		float: left;
+		@media screen and(min-width: $mediumScreenMaxWidth) {
+			width: 35rem;
+			float: left;
+
+			h3 {
+				font-size: 1.1rem;
+			}
+		}
 
 		h3 {
 			margin: 0;
-			font-size: 1.1rem;
 			line-height: 1.6rem;
 			font-weight: 600;
 		}
@@ -42,30 +80,15 @@
 			line-height: 1.2rem;
 			font-weight: 600;
 		}
-
-		.logo {
-			display: block;
-			width: 5rem;
-			height: 3rem;
-			float: right;
-			margin-right: 0.2rem;
-			margin-top: 0.2rem;
-
-			.esa {
-				background: url(http://upload.wikimedia.org/wikipedia/fr/f/fa/Logo_ESA.png) 0 0/5rem auto no-repeat #FFF;
-			}
-
-			.md {
-				background: url(http://i.imgur.com/YBMVdep.png) 0rem 0rem/2.3rem auto no-repeat #FFF;
-			}
-		}
 	}
 
 	.dates {
-		width: 8rem;
-		float: left;
-		font-weight: 600;
-		font-size: 0.9rem;
+		@media screen and(min-width: $mediumScreenMaxWidth) {
+			width: 8rem;
+			float: left;
+			font-weight: 600;
+		}
 		line-height: 1.5rem;
+		font-size: 0.9rem;
 	}
 }
