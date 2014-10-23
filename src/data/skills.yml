@@ -1,0 +1,17 @@
+---
+list:
+  - title: 'Backend'
+    list:
+      - skill: 'Java/J2EE'
+        type: 'bar'
+        progress: '90'
+      - skill: 'Spring Framework'
+        type: 'bar'
+        progress: '85'
+      - skill: 'Python'
+        type: 'bar'
+        progress: '75'
+      - skill: 'JPA'
+        type: 'brick'
+      - skill: 'Primefaces'
+        type: 'brick'

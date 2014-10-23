@@ -1,0 +1,93 @@
+// SCSS GonAl project - Contact Me Section
+//
+// Gonzalo Alvarez, 2014
+// Work licensed under
+// Creative Commons Attributions-NonCommercial-NoDerivaties 4.0 International License
+// See: http://creativecommons.org/licenses/by-nc-nd/4.0/
+//
+
+.cm {
+	.field {
+		padding: 0.5rem;
+		border: 1px solid #efefef;
+		width: 100%;
+		margin-bottom: 1.5rem;
+		@include border-radius(3px);
+		box-sizing: border-box;
+
+		&:focus {
+			border: 1px solid #7bdffc;
+		}
+	}
+
+	.textarea {
+		padding: 0.5rem;
+		border: 1px solid #efefef;
+		@include border-radius(3px);
+		width: 100%;
+		margin-bottom: 1.5rem;
+		resize: none;
+		box-sizing: border-box;
+		font-family: inherit;
+	
+		&:focus {
+			border: 1px solid #7bdffc;
+		}
+	}
+
+	.title {
+		margin: 0 0 1rem 0;
+		@media screen and(max-width: $mediumScreenMaxWidth) {
+			&.bottom {
+				margin-top: 1.5rem;
+				border-top: 1px solid #efefef;
+				padding-top: 1rem;
+			}
+		}
+		font-size: 0.8rem;
+		width: 100%;
+		text-align: center;
+		color: #afafaf;
+		font-weight: 600;
+	}
+
+	.button {
+		padding: 0.8em 0;
+		width: 100%;
+		background: #32cdfb;
+		border: 0;
+		font-weight: 600;
+		color: white;
+		text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+		cursor: pointer;
+	}
+
+	.infobox {
+		list-style-type: none;
+		background: #f8f8f8;
+		text-align: right;
+		margin: 2.5rem auto;
+		width: 12rem;
+		font-size: 0.9rem;
+		color: #404060;
+		line-height: 1.5rem;
+		padding: 1.5rem 1rem;
+
+		&.info:before {
+			font-family: FontAwesome;
+			content: "\f041";
+			float:left;
+			margin-top: -0.3rem;
+			margin-left: 0.15rem;
+			font-size: 1.5rem;
+		}
+
+		&.card:before {
+			font-family: FontAwesome;
+			content: "\f108";
+			float:left;
+			margin-top: -0.3rem;
+			font-size: 1.5rem;
+		}
+	}
+}

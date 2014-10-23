@@ -68,6 +68,22 @@
 		}
 	}
 
+	.grid_60 {
+		@media screen and (min-width: $mediumScreenMaxWidth) {
+			width: 58%;
+			margin-right: 2%;
+			float: left;
+		}
+	}
+
+	.grid_40 {
+		@media screen and (min-width: $mediumScreenMaxWidth) {
+			width: 38%;
+			margin-right: 2%;
+			float: left;
+		}
+	}
+
 	@media only screen and (max-device-width: $smallScreenMaxWidth){
 		width: 100%;
 		margin: 0 auto;

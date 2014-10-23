@@ -1,0 +1,23 @@
+{{#each skills.list}}
+	<div class="grid_50">
+		<div class="skillset">
+			<div class="title-wrapper">
+				<div class="title">{{title}}</div>
+			</div>
+			<ul>
+				{{#each list}}
+					<li class="{{type}}">
+						{{#if progress}}
+							<span class="progress p90"></span><span class="text">
+						{{/if}}
+						{{skill}}
+						{{#if progress}}
+							</span>
+						{{/if}}
+					</li>
+				{{/each}}
+			</ul>
+		</div>
+	</div>
+{{/each}}
+
