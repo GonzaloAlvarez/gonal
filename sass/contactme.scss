@@ -37,7 +37,7 @@
 
 	.title {
 		margin: 0 0 1rem 0;
-		@media screen and(max-width: $mediumScreenMaxWidth) {
+		@include bp(max-base) {
 			&.bottom {
 				margin-top: 1.5rem;
 				border-top: 1px solid #efefef;

@@ -25,13 +25,13 @@
 		text-align: justify;
 		display: block;
 		clear: both;
-		@media screen and(min-width: $mediumScreenMaxWidth) {
+		@include bp(min-base) {
 			margin-left: 8rem;
 		}
 	}
 
 	.logo {
-		@media screen and(min-width: $mediumScreenMaxWidth) {
+		@include bp(min-base) {
 			float: right;
 			width: 5rem;
 			height: 3rem;
@@ -41,7 +41,7 @@
 			}
 		}
 
-		@media screen and(max-width: $mediumScreenMaxWidth) {
+		@include bp(max-base) {
 			float: left;
 			width: 4rem;
 			height: 4rem;
@@ -58,7 +58,7 @@
 	}
 
 	.achievement {
-		@media screen and(min-width: $mediumScreenMaxWidth) {
+		@include bp(min-base) {
 			width: 35rem;
 			float: left;
 
@@ -83,7 +83,7 @@
 	}
 
 	.dates {
-		@media screen and(min-width: $mediumScreenMaxWidth) {
+		@include bp(min-base) {
 			width: 8rem;
 			float: left;
 			font-weight: 600;
