@@ -55,6 +55,9 @@
 
 	&.profile {
 		padding-top: 0;
+		@include bp(min-base) {
+			margin-left: 2rem;
+		}
 	}
 
 	.grid_50 {

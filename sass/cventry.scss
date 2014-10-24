@@ -37,7 +37,11 @@
 			height: 3rem;
 
 			&.esa {
-				background: url(http://upload.wikimedia.org/wikipedia/fr/f/fa/Logo_ESA.png) 0 0/5rem auto no-repeat #FFF;
+				background: url($imagesPath + '/esa.svg') 0 0/5rem auto no-repeat #FFF;
+			}
+
+			&.uvigo {
+				background: url($imagesPath + '/uvigo.png') 0 0/5rem auto no-repeat #FFF;
 			}
 		}
 
