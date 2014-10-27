@@ -2,7 +2,7 @@
 list: 
   - content: 'src/content/edu_teleco.md'
     logo: 'uvigo'
-    name: 'Masters Degree in Telecom Engineering'
+    name: "Master's Degree in Telecommunication Engineering"
     dates: '2000-2006'
     centre: 'Vigo University'
     centreurl: 'http://uvigo.es/uvigo_en'
@@ -11,6 +11,11 @@ list:
     dates: 'May 2013'
     centre: 'Amazon Web Services'
     centreurl: 'http://aws.amazon.com'
+  - content: 'src/content/edu_eclipse.md'
+    name: 'Eclipse EMF, GEF and GMF Technologies'
+    dates: 'Apr 2010'
+    centre: 'European Space Agency'
+    centreurl: 'http://www.esa.int'
   - content: 'src/content/edu_agile.md'
     name: 'Agile Development Technologies'
     dates: 'Feb 2009'

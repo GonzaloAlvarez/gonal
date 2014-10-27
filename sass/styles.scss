@@ -28,7 +28,7 @@ body {
 	background-color: #efefef;
 	font-family: 'Open Sans', sans-serif;
 	@include bp(min-base) {
-		background: url(http://i.imgur.com/4NSdHLp.png);
+		background: url($imagesPath + '/brushed.png');
 	}
 }
 
