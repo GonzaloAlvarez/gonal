@@ -4,8 +4,13 @@
 	{{/if}}
 	<div class="dates">{{ this.dates }}</div>
 	<div class="achievement">
-		<h3 class="name">{{ this.name }}</h3>
-		<h4><a class="location" href="{{default this.centreurl '#'}}">{{ this.centre }}</a></h4>
+		{{#if this.short_name }}
+			<h3 class="name large_only">{{ this.name }}</h3>
+			<h3 class="name small_only">{{ this.short_name }}</h3>
+		{{else}}
+			<h3 class="name">{{ this.name }}</h3>
+		{{/if}}
+		<h4><a class="location" href="{{default this.centre_url '#'}}">{{ this.centre }}</a></h4>
 	</div>
 	{{md this.content }}
 </div>

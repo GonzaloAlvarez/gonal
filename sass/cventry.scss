@@ -43,6 +43,10 @@
 			&.uvigo {
 				background: url($imagesPath + '/uvigo.png') 0 0/5rem auto no-repeat #FFF;
 			}
+
+			&.amazon {
+				background: url($imagesPath + '/amazon.png') 0 0/5rem auto no-repeat #FFF;
+			}
 		}
 
 		@include bp(max-base) {
@@ -52,11 +56,15 @@
 			margin-right: 0.5rem;
 
 			&.esa {
-				background: url(https://lh4.googleusercontent.com/-kKIsl4pNq5g/AAAAAAAAAAI/AAAAAAAAdDw/Al6bcQPJg6I/s120-c/photo.jpg) 0 0/4rem auto no-repeat #FFF;
+				background: url($imagesPath + '/esa_small.png') 0 0/4rem auto no-repeat #FFF;
 			}
 
-			&.md {
-				background: url(http://i.imgur.com/YBMVdep.png) 0rem 0rem/4rem auto no-repeat #FFF;
+			&.uvigo {
+				background: url($imagesPath + '/uvigo_small.png') 0rem 0rem/4rem auto no-repeat #FFF;
+			}
+
+			&.amazon {
+				background: url($imagesPath + '/amazon_small.png') 0rem 0rem/4rem auto no-repeat #FFF;
 			}
 		}
 	}

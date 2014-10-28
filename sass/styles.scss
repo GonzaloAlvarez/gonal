@@ -41,11 +41,19 @@ a {
 	html {
 		font-size: 14px;
 	}
+
+	.large_only {
+		display: none;
+	}
 }
 
 @include bp(min-base) {
 	html {
 		font-size: 16px;
+	}
+
+	.small_only {
+		display: none;
 	}
 }
 
