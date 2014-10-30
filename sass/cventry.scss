@@ -47,6 +47,10 @@
 			&.amazon {
 				background: url($imagesPath + '/amazon.png') 0 0/5rem auto no-repeat #FFF;
 			}
+
+			&.tsl {
+				background: url($imagesPath + '/tsl.png') 0 0/5rem auto no-repeat #FFF;
+			}
 		}
 
 		@include bp(max-base) {
@@ -65,6 +69,10 @@
 
 			&.amazon {
 				background: url($imagesPath + '/amazon_small.png') 0rem 0rem/4rem auto no-repeat #FFF;
+			}
+
+			&.tsl {
+				background: url($imagesPath + '/tsl_small.png') 0rem 0rem/4rem auto no-repeat #FFF;
 			}
 		}
 	}
