@@ -19,7 +19,7 @@
 		text-align: center;
 	}
 
-	@include box-shadow(0px 1px 2px 0px rgba(0, 0, 0, 0.2));
+	@include box-shadow(0 1px 2px 0 rgba(0, 0, 0, 0.2));
 	@include bp(min-base) {
 		@include border-radius(2px);
 		margin: 2rem auto;

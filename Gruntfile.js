@@ -73,9 +73,10 @@ module.exports = function(grunt) {
 		csslint: {
 			css: {
 				options: {
-					import: 2
+					import: 2,
+					csslintrc: '.csslintrc'
 				},
-				src: ['build/live/css/styles.css']
+				src: ['build/css/styles.css']
 			}
 		},
 		htmlhint: {
@@ -106,6 +107,27 @@ module.exports = function(grunt) {
 				src: ['src/home.hbs'],
 				dest: 'build/live/index.html'
 			}
+		},
+		uglify: {
+            all: {
+                files: {
+                    "build/live/js/scripts.js": [ 
+						"bower_components/jquery/dist/jquery.js"
+					]
+                },
+                options: {
+                    preserveComments: false,
+                    report: "min",
+                    beautify: {
+                        "ascii_only": true
+                    },
+                    compress: {
+                        "hoist_funs": false,
+                        loops: false,
+                        unused: false
+                    }
+                }
+            }
 		}
 
 	});
@@ -118,11 +140,12 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-htmlmin');
 	grunt.loadNpmTasks('grunt-contrib-csslint');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-htmlhint');
 	grunt.loadNpmTasks('assemble');
 
 	grunt.registerTask('default',['prod', 'connect:server','watch']);
-	grunt.registerTask('shared',['clean', 'compass', 'copy:fontawesome', 'copy:opensans', 'copy:statics', 'assemble']);
+	grunt.registerTask('shared',['clean', 'compass', 'copy:fontawesome', 'copy:opensans', 'copy:statics', 'assemble', 'uglify']);
 	grunt.registerTask('dev',['shared', 'copy:styles_dev']);
 	grunt.registerTask('prod',['shared', 'cssmin', 'htmlmin']);
 	grunt.registerTask('check',['prod', 'csslint', 'htmlhint']);
