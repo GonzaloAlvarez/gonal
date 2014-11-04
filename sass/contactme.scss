@@ -7,27 +7,112 @@
 //
 
 .cm {
+
+	width: 100%;
+
 	.field {
-		padding: 0.5rem;
+		padding: 2%;
 		border: 1px solid #efefef;
-		width: 100%;
-		margin-bottom: 1.5rem;
+		width: 96%;
 		@include border-radius(3px);
-		box-sizing: border-box;
 
 		&:focus {
 			border: 1px solid #7bdffc;
 		}
 	}
 
+	.form-group {
+		margin-bottom: 1.5rem;
+
+		.help-block.form-error {
+			margin: 0.5rem 0 0 0;
+			font-size: .8rem;
+			width: 100%;
+			text-align: center;
+			color: #F75D59;
+			font-weight: 600;
+			display: block;
+		}
+
+		.success, .failure, .spinner {
+			text-align: center;
+			padding: 0.8em 0;
+			color: white;
+			text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+			font-size: 0.9rem;
+			font-weight: 600;
+			display: none;
+		}
+
+		.success {
+			background-color: #98d24d;
+		}
+
+		.failure {
+			background-color: #F75D59;
+		}
+
+		$spinnerColor: #3B5998; 
+		$spinnerSize: 1rem; 
+		$spinnerRadius: $spinnerSize/4; 
+		$spinnerSpacing: $spinnerSize/5; 
+		$spinnerDuration: 3s;
+
+		@include keyframes(spin){
+			25% {
+				@include box-shadow($spinnerSize+$spinnerSize+$spinnerSpacing 0 0 0 $spinnerColor,
+                  $spinnerSize+$spinnerSize+$spinnerSpacing $spinnerSize+$spinnerSpacing 0 0 lighten($spinnerColor, 10%),
+                  $spinnerSize $spinnerSize+$spinnerSpacing 0 0 lighten($spinnerColor, 20%),
+                  $spinnerSize 0 0 0 lighten($spinnerColor, 30%));
+			}
+  
+			50% {
+				@include box-shadow($spinnerSize+$spinnerSize+$spinnerSpacing $spinnerSize+$spinnerSpacing 0 0 $spinnerColor,
+                  $spinnerSize $spinnerSize+$spinnerSpacing 0 0 lighten($spinnerColor, 10%),
+                  $spinnerSize 0 0 0 lighten($spinnerColor, 20%),
+                  $spinnerSize+$spinnerSize+$spinnerSpacing 0 0 0 lighten($spinnerColor, 30%));
+			}
+  
+			75% {
+				@include box-shadow($spinnerSize $spinnerSize+$spinnerSpacing 0 0 $spinnerColor,
+					$spinnerSize 0 0 0 lighten($spinnerColor, 10%),
+					$spinnerSize+$spinnerSize+$spinnerSpacing 0 0 0 lighten($spinnerColor, 20%),
+					$spinnerSize+$spinnerSize+$spinnerSpacing $spinnerSize+$spinnerSpacing 0 0 lighten($spinnerColor, 30%));
+			}
+		}
+
+		.spinner {
+			margin-left: -$spinnerSize*3;
+			height: $spinnerSize*2+$spinnerSpacing;
+			background: transparent;
+
+			&:before {
+				content: "";
+				display: block;
+				width: $spinnerSize;
+				height: $spinnerSize;
+				@include border-radius($spinnerRadius 0 $spinnerRadius 0);
+				margin: auto;
+				background: transparent;
+				@include box-shadow($spinnerSize 0 0 0 $spinnerColor,
+					$spinnerSize+$spinnerSize+$spinnerSpacing 0 0 0 lighten($spinnerColor, 10%),
+					$spinnerSize+$spinnerSize+$spinnerSpacing $spinnerSize+$spinnerSpacing 0 0 lighten($spinnerColor, 20%),
+					$spinnerSize $spinnerSize+$spinnerSpacing 0 0 lighten($spinnerColor, 30%));
+				@include animation(spin $spinnerDuration ease-in-out infinite);
+		}
+}
+
+
+
+
+	}
+
 	.textarea {
-		padding: 0.5rem;
+		padding: 2%;
 		border: 1px solid #efefef;
 		@include border-radius(3px);
-		width: 100%;
-		margin-bottom: 1.5rem;
+		width: 96%;
 		resize: none;
-		box-sizing: border-box;
 		font-family: inherit;
 	
 		&:focus {

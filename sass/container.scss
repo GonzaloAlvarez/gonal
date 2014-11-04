@@ -71,15 +71,14 @@
 	.grid_60 {
 		@include bp(min-base) {
 			width: 58%;
-			margin-right: 2%;
 			float: left;
 		}
 	}
 
 	.grid_40 {
 		@include bp(min-base) {
-			width: 38%;
-			margin-right: 2%;
+			width: 40%;
+			margin-left: 2%;
 			float: left;
 		}
 	}

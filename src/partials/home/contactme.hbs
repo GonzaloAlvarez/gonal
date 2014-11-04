@@ -1,10 +1,22 @@
-<div class="grid_60">
+<form id="cuForm" class="grid_60">
 	<p class="title">Send me a message and I will reply you asap!</p>
-	<input type="text" name="name" class="field" placeholder="Your Name"/>
-	<input type="text" name="email" class="field" placeholder="Your Email"/>
-	<textarea type="textarea" name="message" cols="40" rows="10" class="textarea" placeholder="Message"></textarea>
-	<input type="submit" value="Send" class="button"/>
-</div>
+	<div class="form-group">
+		<input id="cuName" type="text" name="name" autocomplete="off" class="field" placeholder="Your Name" data-validation="length" data-validation-length="max128" data-validation-error-msg="That's way too long"/>
+	</div>
+	<div class="form-group">
+		<input id="cuEmail" type="text" name="email" autocomplete="off" class="field" placeholder="Your Email" data-validation="email" data-validation-error-msg="That doesn't seem to be a valid email"/>
+	</div>
+	<div class="form-group">
+		<textarea id="cuMessage" type="textarea" name="message" cols="40" rows="10" class="textarea"
+			placeholder="Message" data-validation="length" data-validation-length="max1024" data-validation-error-msg="Wow, that looks like way too much text"></textarea>
+	</div>
+	<div class="form-group">
+		<div class="spinner"></div>
+		<div class="success"><span class="fa fa-check"></span> Sent</div>
+		<div class="failure"><span class="fa fa-exclamation-triangle"></span> Sending failed. Please, try again.</div>
+		<input id="cuSubmit" type="submit" value="Send" class="button"/>
+	</div>
+</form>
 <div class="grid_40">
 	<p class="title bottom">In case you need further info</p>
 	<div class="infobox info">

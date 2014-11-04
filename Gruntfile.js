@@ -27,7 +27,7 @@ module.exports = function(grunt) {
 					livereload: true
 				},
 				files: ['sass/**/*', 'static/**/*', 'src/**/*'],
-				tasks: ['prod']
+				tasks: ['dev']
 			}
 		},
 		copy: {
@@ -96,6 +96,17 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+		concat: {
+			js: {
+				src: [
+					"bower_components/jquery/dist/jquery.js",
+					"bower_components/jquery-form-validator/form-validator/jquery.form-validator.js",
+					"src/js/parse-1.3.1.js",
+					"src/js/form.js"
+				],
+				dest: 'build/live/js/scripts.js'
+			}
+		},
 		assemble: {
 			options: {
 				flatten: true,
@@ -112,7 +123,10 @@ module.exports = function(grunt) {
             all: {
                 files: {
                     "build/live/js/scripts.js": [ 
-						"bower_components/jquery/dist/jquery.js"
+						"bower_components/jquery/dist/jquery.js",
+						"bower_components/jquery-form-validator/form-validator/jquery.form-validator.js",
+						"src/js/parse-1.3.1.js",
+						"src/js/form.js"
 					]
                 },
                 options: {
@@ -137,6 +151,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-connect');
+	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-htmlmin');
 	grunt.loadNpmTasks('grunt-contrib-csslint');
@@ -144,9 +159,9 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-htmlhint');
 	grunt.loadNpmTasks('assemble');
 
-	grunt.registerTask('default',['prod', 'connect:server','watch']);
+	grunt.registerTask('default',['dev', 'connect:server','watch']);
 	grunt.registerTask('shared',['clean', 'compass', 'copy:fontawesome', 'copy:opensans', 'copy:statics', 'assemble', 'uglify']);
-	grunt.registerTask('dev',['shared', 'copy:styles_dev']);
+	grunt.registerTask('dev',['clean', 'compass', 'copy:fontawesome', 'copy:opensans', 'copy:statics', 'assemble', 'copy:styles_dev', 'concat:js']);
 	grunt.registerTask('prod',['shared', 'cssmin', 'htmlmin']);
 	grunt.registerTask('check',['prod', 'csslint', 'htmlhint']);
 }

@@ -13,6 +13,7 @@
 @import "compass/css3/box-shadow";
 @import "compass/css3/border-radius";
 @import "compass/css3/transition";
+@import "compass/css3/animation";
 
 @mixin bp($point) {
 	@if $point == min-base {
@@ -23,6 +24,10 @@
 		@media screen and(max-width: $baseWidth) { @content; }
 	}
 }
+
+$browser-minimum-versions: (
+  'ie': "8"
+);
 
 body {
 	background-color: #efefef;
