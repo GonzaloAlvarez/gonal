@@ -47,6 +47,15 @@
 	</div>
 	<div class="box">
 		<div class="header">
+			<span class="fa fa-wrench"></span> 
+			Skills
+		</div>
+		<div class="container fullwidth">
+			{{>skills}}
+		</div>
+	</div>
+	<div class="box">
+		<div class="header">
 			<span class="fa fa-graduation-cap"></span> 
 			Education
 		</div>
@@ -54,15 +63,6 @@
 			{{#each edu.list}}
 				{{>cventry}}
 			{{/each}}
-		</div>
-	</div>
-	<div class="box">
-		<div class="header">
-			<span class="fa fa-wrench"></span> 
-			Skills
-		</div>
-		<div class="container fullwidth">
-			{{>skills}}
 		</div>
 	</div>
 	<div class="box">
