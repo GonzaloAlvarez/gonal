@@ -13,8 +13,8 @@
 	.field {
 		padding: 2%;
 		border: 1px solid #efefef;
+		outline: none;
 		width: 96%;
-		@include border-radius(3px);
 
 		&:focus {
 			border: 1px solid #7bdffc;
@@ -99,11 +99,8 @@
 					$spinnerSize+$spinnerSize+$spinnerSpacing $spinnerSize+$spinnerSpacing 0 0 lighten($spinnerColor, 20%),
 					$spinnerSize $spinnerSize+$spinnerSpacing 0 0 lighten($spinnerColor, 30%));
 				@include animation(spin $spinnerDuration ease-in-out infinite);
+			}
 		}
-}
-
-
-
 
 	}
 
@@ -114,6 +111,7 @@
 		width: 96%;
 		resize: none;
 		font-family: inherit;
+		outline: none;
 	
 		&:focus {
 			border: 1px solid #7bdffc;
