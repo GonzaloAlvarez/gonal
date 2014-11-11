@@ -4,7 +4,7 @@ list:
     logo: 'amazon'
     name: 'Software Development Engineer'
     dates: '2013-Present'
-    centre: 'Amazon'
+    centre: 'Amazon.com'
     centre_url: 'http://www.amazon.com'
   - content: 'src/content/job_tsl.md'
     logo: 'tsl'

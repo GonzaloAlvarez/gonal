@@ -28,6 +28,10 @@
 		@include bp(min-base) {
 			margin-left: 8rem;
 		}
+
+		strong {
+			font-weight: 600;
+		}
 	}
 
 	.logo {
