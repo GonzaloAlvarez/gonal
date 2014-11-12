@@ -7,6 +7,8 @@
 //
 
 module.exports = function(grunt) {
+	require('load-grunt-tasks')(grunt, {pattern: ['grunt-*','assemble']});
+
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		clean: {
@@ -101,7 +103,9 @@ module.exports = function(grunt) {
 				src: [
 					"bower_components/jquery/dist/jquery.js",
 					"bower_components/jquery-form-validator/form-validator/jquery.form-validator.js",
+					"build/js/analytics.js",
 					"src/js/parse-1.3.1.js",
+					"src/js/ga.js",
 					"src/js/form.js"
 				],
 				dest: 'build/live/js/scripts.js'
@@ -119,13 +123,21 @@ module.exports = function(grunt) {
 				dest: 'build/live/index.html'
 			}
 		},
+		curl: {
+			analytics: {
+				dest: 'build/js/analytics.js',
+				src: 'http://www.google-analytics.com/analytics.js'
+			}
+		},
 		uglify: {
             all: {
                 files: {
                     "build/live/js/scripts.js": [ 
 						"bower_components/jquery/dist/jquery.js",
 						"bower_components/jquery-form-validator/form-validator/jquery.form-validator.js",
+						"build/js/analytics.js",
 						"src/js/parse-1.3.1.js",
+						"src/js/ga.js",
 						"src/js/form.js"
 					]
                 },
@@ -142,25 +154,40 @@ module.exports = function(grunt) {
                     }
                 }
             }
+		},
+		aws: grunt.file.readJSON('aws-s3.json'),
+		aws_s3: {
+			options: {
+				accessKeyId: '<%= aws.AWSAccessKeyId %>',
+				secretAccessKey: '<%= aws.AWSSecretKey %>',
+				region: 'eu-west-1',
+				uploadConcurrency: 5,
+				downloadConcurrency: 5
+			},
+			prod: {
+				options: {
+					bucket: 'gon.al',
+					params: {
+						ContentEncoding: 'gzip'
+					}
+				},
+				files: [
+					{expand:true, cwd: 'build/live/', src: ['**'], dest:''}
+				]
+			}
+		},
+		cssmetrics: {
+			dist: {
+				src: ['build/live/css/styles.css']
+			}
 		}
 	});
 
-	grunt.loadNpmTasks('grunt-contrib-compass');
-	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-cssmin');
-	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-contrib-connect');
-	grunt.loadNpmTasks('grunt-contrib-concat');
-	grunt.loadNpmTasks('grunt-contrib-copy');
-	grunt.loadNpmTasks('grunt-contrib-htmlmin');
-	grunt.loadNpmTasks('grunt-contrib-csslint');
-	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-htmlhint');
-	grunt.loadNpmTasks('assemble');
 
 	grunt.registerTask('default',['dev', 'connect:server','watch']);
-	grunt.registerTask('shared',['clean', 'compass', 'copy:fontawesome', 'copy:opensans', 'copy:statics', 'assemble', 'uglify']);
-	grunt.registerTask('dev',['clean', 'compass', 'copy:fontawesome', 'copy:opensans', 'copy:statics', 'assemble', 'copy:styles_dev', 'concat:js']);
+	grunt.registerTask('shared',['clean', 'compass', 'copy:fontawesome', 'copy:opensans', 'copy:statics', 'assemble', 'curl', 'uglify']);
+	grunt.registerTask('dev',['clean', 'compass', 'copy:fontawesome', 'copy:opensans', 'copy:statics', 'assemble', 'curl', 'copy:styles_dev', 'concat:js']);
 	grunt.registerTask('prod',['shared', 'cssmin', 'htmlmin']);
-	grunt.registerTask('check',['prod', 'csslint', 'htmlhint']);
+	grunt.registerTask('deploy', ['prod', 'aws_s3']);
+	grunt.registerTask('check',['prod', 'csslint', 'htmlhint', 'cssmetrics']);
 }
