@@ -6,9 +6,10 @@ var gaForm = function() {
 
 	var ContactForm = Parse.Object.extend("ContactForm");
 	var $form = $('#cuForm');
-	var $spinner = $form.find('.spinner');
-	var $success = $form.find('.success');
-	var $failure = $form.find('.failure');
+	var $spinner = $form.find('#cuSpinner');
+	var $success = $form.find('#cuSent');
+	var $valfail = $form.find('#cuValFail');
+	var $failure = $form.find('#cuSendFail');
 	var $submitButton = $form.find('#cuSubmit');
 
 	$.validate({
@@ -16,6 +17,10 @@ var gaForm = function() {
 		onSuccess: function(form) {
 			changeStatus('sending');
 			pushMessage(form);
+			return false;
+		},
+		onError: function(form) {
+			changeStatus('valfail');
 			return false;
 		}
 	});
@@ -25,6 +30,7 @@ var gaForm = function() {
 		$failure.hide();
 		$submitButton.hide();
 		$spinner.hide();
+		$valfail.hide();
 		if(st === 'sending') {
 			$spinner.show();
 		} else if(st === 'success') {
@@ -35,6 +41,11 @@ var gaForm = function() {
 			},5000);
 		} else if(st === 'failure') {
 			$failure.show();
+			setTimeout(function() {
+				changeStatus('normal');
+			},5000);
+		} else if(st === 'valfail') {
+			$valfail.show();
 			setTimeout(function() {
 				changeStatus('normal');
 			},5000);

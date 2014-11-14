@@ -11,9 +11,10 @@
 			placeholder="Message" data-validation="length" data-validation-length="max1024" data-validation-error-msg="Wow, that looks like way too much text"></textarea>
 	</div>
 	<div class="form-group">
-		<div class="spinner"></div>
-		<div class="success"><span class="fa fa-check"></span> Sent</div>
-		<div class="failure"><span class="fa fa-exclamation-triangle"></span> Sending failed. Please, try again.</div>
+		<div id="cuSpinner" class="spinner"></div>
+		<div id="cuSent" class="success"><span class="fa fa-check"></span> Sent</div>
+		<div id="cuSendFail" class="failure"><span class="fa fa-exclamation-triangle"></span> Sending failed. Please, try again.</div>
+		<div id="cuValFail" class="failure"><span class="fa fa-exclamation-triangle"></span> Validation failed. Fix it and try again..</div>
 		<input id="cuSubmit" type="submit" value="Send" class="button"/>
 	</div>
 </form>

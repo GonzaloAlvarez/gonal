@@ -195,6 +195,15 @@ module.exports = function(grunt) {
 				]
 			}
 		},
+		cf: grunt.file.readJSON('cloudflare.json'),
+		cloudflare: {
+			options: {
+				a: 'fpurge_ts',
+				tkn: '<%= cf.ApiKey %>',
+				email: '<%= cf.Email %>',
+				z: 'gon.al'
+			}
+		},
 		cssmetrics: {
 			dist: {
 				src: ['build/live/css/styles.css']
@@ -206,6 +215,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('shared',['clean', 'compass', 'copy:fontawesome', 'copy:opensans', 'copy:statics', 'assemble', 'curl', 'uglify']);
 	grunt.registerTask('dev',['clean', 'compass', 'copy:fontawesome', 'copy:opensans', 'copy:statics', 'assemble', 'curl', 'copy:styles_dev', 'concat:js']);
 	grunt.registerTask('prod',['shared', 'cssmin', 'htmlmin']);
-	grunt.registerTask('deploy', ['prod', 'compress', 'aws_s3:clean', 'aws_s3:prod']);
+	grunt.registerTask('deploy', ['prod', 'compress', 'aws_s3:clean', 'aws_s3:prod', 'cloudflare']);
 	grunt.registerTask('check',['prod', 'csslint', 'htmlhint', 'cssmetrics']);
 }
