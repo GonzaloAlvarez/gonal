@@ -156,29 +156,24 @@
 		line-height: 1.5rem;
 		padding: 1.5rem 1rem;
 
-		&.phone:before {
+		&:before {
 			font-family: FontAwesome;
-			content: "\f095";
 			float:left;
 			margin-top: -0.3rem;
 			margin-left: 0.15rem;
 			font-size: 1.5rem;
 		}
 
+		&.phone:before {
+			content: "\f095";
+		}
+
 		&.card:before {
-			font-family: FontAwesome;
 			content: "\f108";
-			float:left;
-			margin-top: -0.3rem;
-			font-size: 1.5rem;
 		}
 
 		&.skype:before {
-			font-family: FontAwesome;
 			content: "\f17e";
-			float:left;
-			margin-top: -0.3rem;
-			font-size: 1.5rem;
 		}
 	}
 }
