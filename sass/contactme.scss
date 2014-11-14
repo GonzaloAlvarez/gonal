@@ -13,11 +13,11 @@
 	.field {
 		padding: 2%;
 		border: 1px solid #efefef;
-		outline: none;
 		width: 96%;
 
 		&:focus {
 			border: 1px solid #7bdffc;
+			outline: none;
 		}
 	}
 
@@ -111,10 +111,10 @@
 		width: 96%;
 		resize: none;
 		font-family: inherit;
-		outline: none;
 	
 		&:focus {
 			border: 1px solid #7bdffc;
+			outline: none;
 		}
 	}
 
