@@ -155,6 +155,17 @@ module.exports = function(grunt) {
                 }
             }
 		},
+		compress: {
+			prod: {
+				options: {
+					mode: 'gzip'
+				},
+				expand: true,
+				cwd: 'build/live/',
+				src:['**/*'],
+				dest: 'build/deploy/'
+			}
+		},
 		aws: grunt.file.readJSON('aws-s3.json'),
 		aws_s3: {
 			options: {
@@ -164,6 +175,14 @@ module.exports = function(grunt) {
 				uploadConcurrency: 5,
 				downloadConcurrency: 5
 			},
+			clean: {
+				options: {
+					bucket: 'gon.al'
+				},
+				files: [
+					{dest: '/', action: 'delete'}
+				]
+			},
 			prod: {
 				options: {
 					bucket: 'gon.al',
@@ -172,7 +191,7 @@ module.exports = function(grunt) {
 					}
 				},
 				files: [
-					{expand:true, cwd: 'build/live/', src: ['**'], dest:''}
+					{expand:true, cwd: 'build/deploy/', src: ['**'], dest:''}
 				]
 			}
 		},
@@ -183,11 +202,10 @@ module.exports = function(grunt) {
 		}
 	});
 
-
 	grunt.registerTask('default',['dev', 'connect:server','watch']);
 	grunt.registerTask('shared',['clean', 'compass', 'copy:fontawesome', 'copy:opensans', 'copy:statics', 'assemble', 'curl', 'uglify']);
 	grunt.registerTask('dev',['clean', 'compass', 'copy:fontawesome', 'copy:opensans', 'copy:statics', 'assemble', 'curl', 'copy:styles_dev', 'concat:js']);
 	grunt.registerTask('prod',['shared', 'cssmin', 'htmlmin']);
-	grunt.registerTask('deploy', ['prod', 'aws_s3']);
+	grunt.registerTask('deploy', ['prod', 'compress', 'aws_s3:clean', 'aws_s3:prod']);
 	grunt.registerTask('check',['prod', 'csslint', 'htmlhint', 'cssmetrics']);
 }
