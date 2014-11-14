@@ -1,0 +1,52 @@
+# Gruntfile GonAl project
+# 
+# Gonzalo Alvarez, 2014
+# Work licensed under
+# Creative Commons Attributions-NonCommercial-NoDerivaties 4.0 International License
+# See: http://creativecommons.org/licenses/by-nc-nd/4.0/
+---
+
+shared:
+    - 'clean'
+    - 'compass'
+    - 'copy:fontawesome'
+    - 'copy:opensans'
+    - 'copy:statics'
+    - 'assemble'
+    - 'curl'
+    - 'uglify'
+
+dev:
+    - 'compass'
+    - 'assemble'
+    - 'copy:styles_dev'
+    - 'concat:js'
+
+default:
+    - 'clean'
+    - 'copy:fontawesome'
+    - 'copy:opensans'
+    - 'copy:statics'
+    - 'curl'
+    - 'dev' 
+    - 'connect:server'
+    - 'watch'
+
+prod:
+    - 'shared'
+    - 'cssmin'
+    - 'htmlmin'
+
+deploy:
+    - 'prod'
+    - 'compress'
+    - 'aws_s3:clean'
+    - 'aws_s3:prod'
+    - 'cloudflare'
+
+check:
+    - 'prod'
+    - 'csslint'
+    - 'htmlhint'
+    - 'cssmetrics'
+    - 'jshint'

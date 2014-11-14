@@ -16,7 +16,7 @@ var gaForm = function() {
 		form: '#cuForm',
 		onSuccess: function(form) {
 			changeStatus('sending');
-			pushMessage(form);
+			pushMessage();
 			return false;
 		},
 		onError: function(form) {
@@ -52,15 +52,15 @@ var gaForm = function() {
 		} else {
 			$submitButton.show();
 		}
-	}
+	};
 
-	var pushMessage = function(form) {
+	var pushMessage = function() {
 		var contactForm = new ContactForm();
 		var data = {};
 
-		data.Name = form.find('#cuName').val();
-		data.Email = form.find('#cuEmail').val();
-		data.Message = form.find('#cuMessage').val();
+		data.Name = $form.find('#cuName').val();
+		data.Email = $form.find('#cuEmail').val();
+		data.Message = $form.find('#cuMessage').val();
 
 		contactForm.save(data, {
 			success: function() {
@@ -70,5 +70,5 @@ var gaForm = function() {
 				changeStatus('failure');
 			}
 		});
-	}
+	};
 }();

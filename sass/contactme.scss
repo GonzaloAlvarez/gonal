@@ -172,5 +172,13 @@
 			margin-top: -0.3rem;
 			font-size: 1.5rem;
 		}
+
+		&.skype:before {
+			font-family: FontAwesome;
+			content: "\f17e";
+			float:left;
+			margin-top: -0.3rem;
+			font-size: 1.5rem;
+		}
 	}
 }
