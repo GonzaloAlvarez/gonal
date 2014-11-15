@@ -24,6 +24,7 @@
     "grunt-css-metrics": "^0.1.2",
     "grunt-curl": "^2.0.3",
     "grunt-htmlhint": "^0.4.1",
+    "grunt-sitemap": "^1.2.0",
     "handlebars-helper-md": "^0.2.0",
     "load-grunt-config": "^0.16.0",
     "load-grunt-tasks": "^1.0.0"
