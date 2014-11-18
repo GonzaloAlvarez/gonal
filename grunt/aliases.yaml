@@ -6,16 +6,6 @@
 # See: http://creativecommons.org/licenses/by-nc-nd/4.0/
 ---
 
-shared:
-    - 'clean'
-    - 'compass'
-    - 'copy:fontawesome'
-    - 'copy:opensans'
-    - 'copy:statics'
-    - 'assemble'
-    - 'curl'
-    - 'uglify'
-
 dev:
     - 'compass'
     - 'assemble'
@@ -33,7 +23,15 @@ default:
     - 'watch'
 
 prod:
-    - 'shared'
+    - 'clean'
+    - 'compass'
+    - 'copy:fontawesome'
+    - 'copy:opensans'
+    - 'copy:statics'
+    - 'assemble'
+    - 'curl'
+    - 'sitemap'
+    - 'uglify'
     - 'cssmin'
     - 'htmlmin'
 

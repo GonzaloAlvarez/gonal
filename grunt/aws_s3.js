@@ -25,7 +25,8 @@ module.exports = {
 		options: {
 			bucket: 'gon.al',
 			params: {
-				ContentEncoding: 'gzip'
+				ContentEncoding: 'gzip',
+				CacheControl: 'max-age=3600'
 			}
 		},
 		files: [
