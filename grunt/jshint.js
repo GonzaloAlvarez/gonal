@@ -17,7 +17,7 @@ module.exports = {
     },
 	all: {
 		files: {
-			src: ['src/js/ga.js','src/js/form.js']
+			src: ['src/js/ga.js','src/js/form.js', 'src/js/parse.js', 'src/js/abtests.js', 'src/js/nav.js']
 		}
 	}
 }

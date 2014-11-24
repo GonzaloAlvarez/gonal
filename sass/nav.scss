@@ -1,0 +1,31 @@
+// SCSS GonAl project - Navigation Styles
+//
+// Gonzalo Alvarez, 2014
+// Work licensed under
+// Creative Commons Attributions-NonCommercial-NoDerivaties 4.0 International License
+// See: http://creativecommons.org/licenses/by-nc-nd/4.0/
+//
+
+#gototop {
+	position: fixed;
+	bottom: 2rem;
+	right: 2rem;
+	background: rgb(0, 0, 0);
+	background: rgba(0, 0, 0, 0.7);
+	width: 2rem;
+	height: 2rem;
+	padding-left: 1rem;
+	padding-top: 1rem;
+	@include border-radius(50%);
+	@include transition(all 0.3s linear);
+	color: #fff;
+	z-index: 9000;
+	cursor: pointer;
+	display: none;
+	transform: translateZ(0);
+	-webkit-transform: translateZ(0);
+
+	&:hover {
+		background: rgba(0, 0, 0, 0.9);
+	}
+}
