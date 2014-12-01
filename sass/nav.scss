@@ -10,8 +10,8 @@
 	position: fixed;
 	bottom: 2rem;
 	right: 2rem;
-	background: rgb(0, 0, 0);
-	background: rgba(0, 0, 0, 0.7);
+	background: rgb(50, 205, 251);
+	background: rgba(50, 205, 251, 0.7);
 	width: 2rem;
 	height: 2rem;
 	padding-left: 1rem;
@@ -28,6 +28,6 @@
 	-moz-tap-highlight-color: rgba(0, 0, 0, 0);
 
 	&:hover {
-		background: rgba(0, 0, 0, 0.9);
+		background: rgba(50, 205, 251, 0.9);
 	}
 }

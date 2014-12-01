@@ -22,6 +22,10 @@ default:
     - 'connect:server'
     - 'watch'
 
+blog:
+    - 'clean'
+    - 'execute:metalsmith'
+
 prod:
     - 'clean'
     - 'compass'
