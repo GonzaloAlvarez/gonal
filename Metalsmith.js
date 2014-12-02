@@ -15,10 +15,14 @@ var Metalsmith = require('metalsmith'),
 	_ = require('lodash'),
 	fs = require('fs');
 
-_.each(fs.readdirSync('src/partials'),function(file){
-	  var name = file.split(".")[0],
-	      contents = fs.readFileSync(__dirname+"/src/partials/"+file).toString();
-  Handlebars.registerPartial(name,contents);
+var partials_folders = ['home/partials/common', 'blog/templates/partials'];
+
+_.each(partials_folders, function(folder) {
+	_.each(fs.readdirSync(folder),function(file){
+		var name = file.split(".")[0],
+			contents = fs.readFileSync(__dirname+"/"+folder+"/"+file).toString();
+		Handlebars.registerPartial(name,contents);
+	});
 });
 
 Metalsmith(__dirname)
