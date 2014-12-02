@@ -10,7 +10,7 @@ module.exports = {
 		options: {
 			livereload: true
 		},
-		files: ['sass/**/*', 'static/**/*', 'src/**/*'],
+		files: ['sass/**/*', 'static/**/*', 'home/**/*'],
 		tasks: ['dev']
 	}
 }

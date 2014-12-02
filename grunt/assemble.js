@@ -8,12 +8,12 @@
 module.exports = {
 	options: {
 		flatten: true,
-		data: ['src/data/**/*.{json,yml}'],
+		data: ['home/data/**/*.{json,yml}'],
 		helpers: ['handlebars-helper-md'],
-		partials: ['src/partials/**/*.hbs', 'src/content/*.md']
+		partials: ['home/partials/**/*.hbs', 'home/content/*.md']
 	},
 	home: {
-		src: ['src/home.hbs'],
+		src: ['home/index.hbs'],
 		dest: 'build/live/index.html'
 	}
 }

@@ -12,12 +12,12 @@ module.exports = {
 				"bower_components/jquery/dist/jquery.js",
 				"bower_components/jquery-form-validator/form-validator/jquery.form-validator.js",
 				"build/js/analytics.js",
-				"src/js/parse-1.3.1.js",
-				"src/js/parse.js",
-				"src/js/abtests.js",
-				"src/js/ga.js",
-				"src/js/nav.js",
-				"src/js/form.js"
+				"home/js/parse-1.3.1.js",
+				"home/js/parse.js",
+				"home/js/abtests.js",
+				"home/js/ga.js",
+				"home/js/nav.js",
+				"home/js/form.js"
 			]
 		},
 		options: {

@@ -15,9 +15,9 @@ var Metalsmith = require('metalsmith'),
 	_ = require('lodash'),
 	fs = require('fs');
 
-_.each(fs.readdirSync('blog/templates/partials'),function(file){
+_.each(fs.readdirSync('src/partials'),function(file){
 	  var name = file.split(".")[0],
-	      contents = fs.readFileSync(__dirname+"/blog/templates/partials/"+file).toString();
+	      contents = fs.readFileSync(__dirname+"/src/partials/"+file).toString();
   Handlebars.registerPartial(name,contents);
 });
 
