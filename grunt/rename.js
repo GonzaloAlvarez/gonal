@@ -6,18 +6,8 @@
 // See: http://creativecommons.org/licenses/by-nc-nd/4.0/
 //
 module.exports = {
-	home: {
-		options: {
-			livereload: true
-		},
-		files: ['sass/**/*', 'static/**/*', 'home/**/*'],
-		tasks: ['dev']
-	},
 	blog: {
-		options: {
-			livereload: true
-		},
-		files: ['blog/**/*'],
-		tasks: ['blog']
+		src: ['build/live/b/index.hbs'],
+		dest: 'build/live/b/index.html'
 	}
 }

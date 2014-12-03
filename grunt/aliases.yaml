@@ -20,11 +20,17 @@ default:
     - 'curl'
     - 'dev' 
     - 'connect:server'
-    - 'watch'
+    - 'watch:home'
 
 blog:
-    - 'clean'
     - 'execute:metalsmith'
+    - 'rename:blog'
+
+blogdev:
+    - 'clean'
+    - 'blog'
+    - 'connect:server'
+    - 'watch:blog'
 
 prod:
     - 'clean'

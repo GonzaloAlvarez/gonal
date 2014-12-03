@@ -12,7 +12,9 @@ var Metalsmith = require('metalsmith'),
 	markdown = require('metalsmith-markdown'),
 	collections = require('metalsmith-collections'),
 	Handlebars = require('handlebars'),
+	path = require('metalsmith-path'),
 	_ = require('lodash'),
+	moment = require('moment'),
 	fs = require('fs');
 
 var partials_folders = ['home/partials/common', 'blog/templates/partials'];
@@ -23,6 +25,17 @@ _.each(partials_folders, function(folder) {
 			contents = fs.readFileSync(__dirname+"/"+folder+"/"+file).toString();
 		Handlebars.registerPartial(name,contents);
 	});
+});
+
+Handlebars.registerHelper('debug', function(optVal) {
+	console.log(this);
+	if(optVal) {
+		console.log(optVal);
+	}
+});
+
+Handlebars.registerHelper('moment', function(time,format){
+	  return moment(time).format(format);
 });
 
 Metalsmith(__dirname)
@@ -36,6 +49,7 @@ Metalsmith(__dirname)
 		}})
 	)
 	.use(markdown())
+	.use(path())
 	.use(templates({
 		engine: 'handlebars',
 		directory: 'blog/templates'
