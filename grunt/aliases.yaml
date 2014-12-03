@@ -47,14 +47,19 @@ prod:
 
 deploy:
     - 'prod'
+    - 'chk'
     - 'compress'
     - 'aws_s3:clean'
     - 'aws_s3:prod'
     - 'cloudflare'
 
-check:
-    - 'prod'
+chk:
     - 'csslint'
     - 'htmlhint'
     - 'cssmetrics'
     - 'jshint'
+    - 'jasmine:home'
+
+check:
+    - 'prod'
+    - 'chk'
