@@ -16,6 +16,7 @@ describe("Grunt Home Site Tests - Integration", function() {
 		it('should have the avatar picture', function() {
 			expect($('.box .container .avatar')).toBeVisible();
 			expect($('.box .container .avatar')).toContainElement('span');
+			expect($('.box .container .avatar .avatar-image').css('background-image')).toContain('img/avatar.png');
 		});
 	});
 });

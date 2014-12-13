@@ -58,7 +58,7 @@ chk:
     - 'htmlhint'
     - 'cssmetrics'
     - 'jshint'
-    - 'jasmine:home'
+    - 'execute:jasmineInteg'
 
 check:
     - 'prod'
