@@ -1,13 +1,21 @@
-describe("General Home Site Tests - Integration", function() {
+describe("Grunt Home Site Tests - Integration", function() {
+
+	var SECTIONS = 5;
+
 	beforeEach(function() {
-		jasmine.getFixtures().fixturesPath = 'build/live';
-		loadFixtures('index.html');
 	});
 
 	describe("General Document Structure", function() {
-		it('Boxes', function() {
-			expect($('.box')).toExist();
-			expect($('.box').length).toBe(5);
+		it('should have all boxes and headers', function() {
+			expect($('.box')).toHaveLength(SECTIONS);
+			expect($('.box .header')).toHaveLength(SECTIONS - 1);
+		});
+	});
+
+	describe("Title section", function() {
+		it('should have the avatar picture', function() {
+			expect($('.box .container .avatar')).toBeVisible();
+			expect($('.box .container .avatar')).toContainElement('span');
 		});
 	});
 });
