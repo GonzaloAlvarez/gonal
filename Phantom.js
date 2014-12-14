@@ -20,6 +20,10 @@ var args = process.argv.slice(2);
 phantom.create(function(ph) {
 	ph.createPage(function(page) {
 		var url = 'file://' + __dirname + '/build/live/index.html';
+		page.set('viewportSize', {
+			width: 2000,
+			height: 1000
+		});
 		page.open(url, function(status) {
 			if(status !== 'success') {
 				console.log('Failed loading site');
@@ -36,7 +40,7 @@ phantom.create(function(ph) {
 				});
 				setTimeout(function() {
 					if(args[0] === 'screenshot') {
-						page.render('sm.png', {format:'png'}, function(err) { ph.exit();});
+						page.render('build/live/screenshot.png', {format:'png'}, function(err) { ph.exit();});
 					}
 					else if(args[0] === 'jasmine') {
 						page.injectJs('bower_components/jasmine/lib/jasmine-core/jasmine.js');

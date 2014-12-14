@@ -1,6 +1,7 @@
 describe("Grunt Home Site Tests - Integration", function() {
 
 	var SECTIONS = 5;
+	var SOCIAL_ICONS = 6;
 
 	beforeEach(function() {
 	});
@@ -22,6 +23,10 @@ describe("Grunt Home Site Tests - Integration", function() {
 		it('should have the title right', function() {
 			expect($('.box .container.info h1')).toContainText('Gonzalo Alvarez');
 			expect($('.box .container.info h2')).toContainText('Software Development Engineer');
+		});
+
+		it('should have the right social icon count', function() {
+			expect($('.box .social li')).toHaveLength(SOCIAL_ICONS);
 		});
 	});
 });
