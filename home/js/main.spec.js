@@ -18,5 +18,10 @@ describe("Grunt Home Site Tests - Integration", function() {
 			expect($('.box .container .avatar')).toContainElement('span');
 			expect($('.box .container .avatar .avatar-image').css('background-image')).toContain('img/avatar.png');
 		});
+
+		it('should have the title right', function() {
+			expect($('.box .container.info h1')).toContainText('Gonzalo Alvarez');
+			expect($('.box .container.info h2')).toContainText('Software Development Engineer');
+		});
 	});
 });

@@ -2,8 +2,17 @@ var phantom = require('phantom');
 var phantomjs = require('phantomjs');
 var path = require('path');
 
+var failed_on_exit = false;
+
 var phantom_options = {
-	path: path.dirname(phantomjs.path) + '/'
+	path: path.dirname(phantomjs.path) + '/',
+	onExit: function() {
+		if(failed_on_exit) {
+			process.exit(1);
+		} else {
+			process.exit(0);
+		}
+	}
 }
 
 var args = process.argv.slice(2);
@@ -18,6 +27,9 @@ phantom.create(function(ph) {
 				page.onConsoleMessage(function(msg) {
 					if(msg === 'AD') {
 						ph.exit();
+					} else if(msg == 'AF') {
+						failed_on_exit = true;
+						ph.exit();
 					} else {
 						console.log(msg);
 					}
@@ -27,7 +39,6 @@ phantom.create(function(ph) {
 						page.render('sm.png', {format:'png'}, function(err) { ph.exit();});
 					}
 					else if(args[0] === 'jasmine') {
-						page.injectJs('bower_components/es5-shim/es5-shim.js');
 						page.injectJs('bower_components/jasmine/lib/jasmine-core/jasmine.js');
 						page.injectJs('bower_components/jasmine/lib/jasmine-core/jasmine-html.js');
 						page.injectJs('bower_components/jasmine/lib/jasmine-core/boot.js');
@@ -36,17 +47,27 @@ phantom.create(function(ph) {
 						page.injectJs('bower_components/jasmine-jquery/lib/jasmine-jquery.js');
 						page.injectJs('home/js/main.spec.js');
 
-						page.evaluate(function(result) {
+						var passed = page.evaluate(function(result) {
 							jasmine.getEnv().addReporter(new jasmineReporters.TerminalReporter({
 								color: true,
 								verbosity: 3
 							}));
-							jasmine.getEnv().addReporter({jasmineDone: function() {console.log('AD')}});
+							jasmine.getEnv().addReporter({
+								jasmineStarted: function() { jasmine.getEnv().failedTests = false;},
+								specDone: function(spec) { if(spec.status === 'failed'){ jasmine.getEnv().failedTests = true;}},
+								jasmineDone: function() { 
+									if(jasmine.getEnv().failedTests) { 
+										console.log('AF');
+									} else {
+										console.log('AD');
+									}
+								}
+							});
 							setTimeout(function() {
 								var evt = document.createEvent('Event'); 
 								evt.initEvent('load', false, false);
 								window.dispatchEvent(evt);
-							}, 500);
+							}, 200);
 						});
 					}
 				}, 200);
