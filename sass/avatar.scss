@@ -46,8 +46,8 @@
 		background-color: #FFF;
 		background-image: url($imagesPath + '/avatar.png');
 	    background-repeat: no-repeat;
-		background-size: 8rem auto;
 		background-position: 0 0;
+		@include background-size(8rem auto);
 		width: 8rem;
 		height: 8rem;
 		display:block;

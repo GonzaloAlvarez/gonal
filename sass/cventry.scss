@@ -40,20 +40,25 @@
 			width: 5rem;
 			height: 3rem;
 
+			background-color: #FFF;
+			background-repeat: no-repeat;
+			background-position: 0 0;
+			@include background-size(5rem auto);
+
 			&.esa {
-				background: url($imagesPath + '/esa.svg') 0 0/5rem auto no-repeat #FFF;
+				background-image: url($imagesPath + '/esa.svg');
 			}
 
 			&.uvigo {
-				background: url($imagesPath + '/uvigo.png') 0 0/5rem auto no-repeat #FFF;
+				background-image: url($imagesPath + '/uvigo.png');
 			}
 
 			&.amazon {
-				background: url($imagesPath + '/amazon.png') 0 0/5rem auto no-repeat #FFF;
+				background-image: url($imagesPath + '/amazon.png');
 			}
 
 			&.tsl {
-				background: url($imagesPath + '/tsl.png') 0 0/5rem auto no-repeat #FFF;
+				background-image: url($imagesPath + '/tsl.png');
 			}
 		}
 
@@ -62,21 +67,25 @@
 			width: 4rem;
 			height: 4rem;
 			margin-right: 0.5rem;
+			background-color: #FFF;
+			background-repeat: no-repeat;
+			background-position: 0 0;
+			@include background-size(4rem auto);
 
 			&.esa {
-				background: url($imagesPath + '/esa_small.png') 0 0/4rem auto no-repeat #FFF;
+				background-image: url($imagesPath + '/esa_small.png');
 			}
 
 			&.uvigo {
-				background: url($imagesPath + '/uvigo_small.png') 0 0/4rem auto no-repeat #FFF;
+				background-image: url($imagesPath + '/uvigo_small.png');
 			}
 
 			&.amazon {
-				background: url($imagesPath + '/amazon_small.png') 0 0/4rem auto no-repeat #FFF;
+				background-image: url($imagesPath + '/amazon_small.png');
 			}
 
 			&.tsl {
-				background: url($imagesPath + '/tsl_small.png') 0 0/4rem auto no-repeat #FFF;
+				background-image: url($imagesPath + '/tsl_small.png');
 			}
 		}
 	}
