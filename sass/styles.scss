@@ -17,11 +17,11 @@
 @import "compass/css3/animation";
 
 @mixin bp($point) {
-	@if $point == min-base {
+	@if $point == desktop {
 		@media screen and(min-width: $baseWidth + 1) { @content; }
 	}
 
-	@if $point == max-base {
+	@if $point == mobile {
 		@media screen and(max-width: $baseWidth) { @content; }
 	}
 }
@@ -33,7 +33,7 @@ $browser-minimum-versions: (
 body {
 	background-color: #efefef;
 	font-family: 'Open Sans', sans-serif;
-	@include bp(min-base) {
+	@include bp(desktop) {
 		background: url($imagesPath + '/brushed.png');
 	}
 }
@@ -60,7 +60,7 @@ h2 {
 	line-height: 1.6rem;
 }
 
-@include bp(max-base) {
+@include bp(mobile) {
 	html {
 		font-size: 14px;
 	}
@@ -70,7 +70,7 @@ h2 {
 	}
 }
 
-@include bp(min-base) {
+@include bp(desktop) {
 	html {
 		font-size: 16px;
 	}

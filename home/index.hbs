@@ -24,69 +24,72 @@
 
 </head>
 <body>
-	<nav class="nav" id="topnav">
-		<ul>
-			<li class="nav-li"><a href="#" id="topnavCM"><span class="fa fa-comment"></span>Contact Me</a></li>
-			<li class="nav-li"><a href="b/" target="_blank"><span class="fa fa-rss"></span>Blog</a></li>
-			<li class="nav-li"><a href="cv/CV-GonzaloAlvarez.pdf" target="_blank"><span class="fa fa-download"></span>Download CV</a></li>
-		</ul>
-	</nav>
-	<div class="box">
-		<div class="container profile">
-			  <div class="avatar"><span class="avatar-image"></span></div>
-		</div>
-		<div class="info container">
-			<h1>{{ home.fullname }}</h1>
-			<h2>{{ home.fulltitle }}</h2>
-		</div>
-		<div class="social">
-			<ul class="social-icons">
-				{{#each social.icons}}
-					<li><a href="{{ href }}" target="_blank"><span class="fa fa-{{ icon }}"></span></a></li>
-				{{/each}}
+	<div class="main"> <!-- It might be worth looking into using semantic elements -->
+		<nav class="nav" id="topnav">
+			<ul>
+				<li class="nav-li"><a href="#" id="topnavCM"><span class="fa fa-comment"></span>Contact Me</a></li>
+				<li class="nav-li"><a href="b/" target="_blank"><span class="fa fa-rss"></span>Blog</a></li>
+				<li class="nav-li"><a href="cv/CV-GonzaloAlvarez.pdf" target="_blank"><span class="fa fa-download"></span>Download CV</a></li>
 			</ul>
+		</nav>
+		<div class="box">
+			<div class="container profile">
+				  <div class="avatar"><span class="avatar-image"></span></div>
+			</div>
+			<div class="info container">
+				<h1>{{ home.fullname }}</h1>
+				<h2>{{ home.fulltitle }}</h2>
+			</div>
+			<div class="social">
+				<ul class="social-icons">
+					{{#each social.icons}}
+						<li><a href="{{ href }}" target="_blank"><span class="fa fa-{{ icon }}"></span></a></li>
+					{{/each}}
+				</ul>
+			</div>
 		</div>
-	</div>
-	<div class="box">
-		<div class="header">
-			<span class="fa fa-briefcase"></span> 
-			Professional Experience
+		<div class="box">
+			<div class="header">
+				<span class="fa fa-briefcase"></span> 
+				Professional Experience
+			</div>
+			<div class="container fullwidth">
+				{{#each jobs.list}}
+					{{>cventry}}
+				{{/each}}
+			</div>
 		</div>
-		<div class="container fullwidth">
-			{{#each jobs.list}}
-				{{>cventry}}
-			{{/each}}
+		<div class="box">
+			<div class="header">
+				<span class="fa fa-wrench"></span> 
+				Skills
+			</div>
+			<div class="container fullwidth">
+				{{>skills}}
+			</div>
 		</div>
-	</div>
-	<div class="box">
-		<div class="header">
-			<span class="fa fa-wrench"></span> 
-			Skills
+		<div class="box">
+			<div class="header">
+				<span class="fa fa-graduation-cap"></span> 
+				Education
+			</div>
+			<div class="container fullwidth">
+				{{#each edu.list}}
+					{{>cventry}}
+				{{/each}}
+			</div>
 		</div>
-		<div class="container fullwidth">
-			{{>skills}}
+		<div class="box">
+			<a name="contactme"></a>
+			<div class="header">
+				<span class="fa fa-envelope"></span> 
+				Contact
+			</div>
+			<div class="container cm">
+			{{>contactme}}
+			</div>
 		</div>
-	</div>
-	<div class="box">
-		<div class="header">
-			<span class="fa fa-graduation-cap"></span> 
-			Education
-		</div>
-		<div class="container fullwidth">
-			{{#each edu.list}}
-				{{>cventry}}
-			{{/each}}
-		</div>
-	</div>
-	<div class="box">
-		<a name="contactme"></a>
-		<div class="header">
-			<span class="fa fa-envelope"></span> 
-			Contact
-		</div>
-		<div class="container cm">
-		{{>contactme}}
-		</div>
+
 	</div>
 
 	<div id="gototop" class="fa fa-chevron-up gototop"></div>

@@ -14,13 +14,13 @@
 	display:block;
 	padding: 2rem;
 
-	@include bp(max-base) {
+	@include bp(mobile) {
 		padding: 1rem;
 		text-align: center;
 	}
 
 	@include box-shadow(0 1px 2px 0 rgba(0, 0, 0, 0.2));
-	@include bp(min-base) {
+	@include bp(desktop) {
 		@include border-radius(2px);
 		margin: 0 auto 2rem auto;
 
@@ -33,7 +33,7 @@
 		margin-top: -2rem;
 		margin-left: -2rem;
 		margin-right: -2rem;
-		@include bp(max-base) {
+		@include bp(mobile) {
 			margin-top: -1rem;
 			margin-left: -1rem;
 			margin-right: -1rem;
@@ -59,13 +59,13 @@
 
 	&.profile {
 		padding-top: 0;
-		@include bp(min-base) {
+		@include bp(desktop) {
 			margin-left: 2rem;
 		}
 	}
 
 	.grid_50 {
-		@include bp(min-base) {
+		@include bp(desktop) {
 			width: 48%;
 			margin-right: 2%;
 			float: left;
@@ -73,21 +73,21 @@
 	}
 
 	.grid_60 {
-		@include bp(min-base) {
+		@include bp(desktop) {
 			width: 58%;
 			float: left;
 		}
 	}
 
 	.grid_40 {
-		@include bp(min-base) {
+		@include bp(desktop) {
 			width: 40%;
 			margin-left: 2%;
 			float: left;
 		}
 	}
 
-	@include bp(max-base) {
+	@include bp(mobile) {
 		width: 100%;
 		margin: 0 auto;
 	}
@@ -96,18 +96,18 @@
 .info {
 	padding-top: 2rem;
 
-	@include bp(min-base) {
+	@include bp(desktop) {
 		padding-left: 1rem;
 	}
 }
 
 .social {
-	@include bp(min-base) {
+	@include bp(desktop) {
 		padding-left: 2rem;
 		max-width: 13rem;
 	}
 
-	@include bp(max-base) {
+	@include bp(mobile) {
 		width: 100%;
 	}
 
