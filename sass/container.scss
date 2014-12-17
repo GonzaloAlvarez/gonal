@@ -22,7 +22,11 @@
 	@include box-shadow(0 1px 2px 0 rgba(0, 0, 0, 0.2));
 	@include bp(min-base) {
 		@include border-radius(2px);
-		margin: 2rem auto;
+		margin: 0 auto 2rem auto;
+
+		&:nth-of-type(1) {
+			margin-top: 2rem;
+		}
 	}
 
 	.header {

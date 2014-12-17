@@ -11,9 +11,14 @@ var gaNav = function() {
 	var $gototop = $('#gototop');
 	var $all = $('body,html');
 	var $win = $(window);
+	var $topnav = $('#topnav');
+	var $topnavcu = $('#topnavCM');
+	var $contactForm = $('#cuName');
+	var $firstbox = $('.box').first();
+	var $contactFormNameField = $contactForm;
 
 	var upShowLimit = 200;
-	var upAnimationSpeed = 500;
+	var animationSpeed = 500;
 
 	var handleScroll = function() {
 		if($(this).scrollTop() >= upShowLimit ) {
@@ -24,11 +29,28 @@ var gaNav = function() {
 	};
 
 	var goToTop = function() {
-		$all.animate({scrollTop: 0}, upAnimationSpeed);
+		$all.animate({scrollTop: 0}, animationSpeed);
+	};
+
+	var goToContactForm = function() {
+		$all.animate({
+			scrollTop: $contactForm.offset().top
+		}, animationSpeed);
+		setTimeout(function() {
+			$contactFormNameField.focus();
+		}, 1);
+
+		return false;
 	};
 
 	if(abTests.isInTreatment('gototop')) {
 		$win.scroll(handleScroll);
 		$gototop.click(goToTop);
+	}
+
+	if(abTests.isInTreatment('topnav')) {
+		$topnavcu.click(goToContactForm);
+		$firstbox.css('margin-top','0');
+		$topnav.show();
 	}
 }();
