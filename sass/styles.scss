@@ -31,10 +31,18 @@ $browser-minimum-versions: (
 );
 
 body {
-	background-color: #efefef;
 	font-family: 'Open Sans', sans-serif;
+	background-color: #efefef;
 	@include bp(desktop) {
 		background: url($imagesPath + '/brushed.png');
+	}
+}
+
+@include bp(mobile) {
+	.main.open {
+		position: fixed;
+		//transition-duration: 0.4s;
+		@include transform(translateX(80%));
 	}
 }
 

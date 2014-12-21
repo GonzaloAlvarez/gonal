@@ -13,6 +13,7 @@ module.exports = {
 			"build/js/analytics.js",
 			"home/js/parse-1.3.1.js",
 			"home/js/parse.js",
+			"home/js/browcaps.js",
 			"home/js/abtests.js",
 			"home/js/ga.js",
 			"home/js/nav.js",

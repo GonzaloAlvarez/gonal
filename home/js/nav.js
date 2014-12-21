@@ -16,6 +16,8 @@ var gaNav = function() {
 	var $contactForm = $('#cuName');
 	var $firstbox = $('.box').first();
 	var $contactFormNameField = $contactForm;
+	var $navMenu = $('.nav-menu');
+	var isSmall = $('.large-only').css('display') === 'none';
 
 	var upShowLimit = 200;
 	var animationSpeed = 500;
@@ -33,6 +35,7 @@ var gaNav = function() {
 	};
 
 	var goToContactForm = function() {
+		closeResponsiveMenu();
 		$all.animate({
 			scrollTop: $contactForm.offset().top
 		}, animationSpeed);
@@ -43,6 +46,16 @@ var gaNav = function() {
 		return false;
 	};
 
+	var toggleResponsiveMenu = function() {
+		$('.main').toggleClass('open');
+		$('.nav').toggle();
+	};
+
+	var closeResponsiveMenu = function() {
+		$('.main').removeClass('open');
+		$('.nav').hide();
+	};
+
 	if(abTests.isInTreatment('gototop')) {
 		$win.scroll(handleScroll);
 		$gototop.click(goToTop);
@@ -50,7 +63,12 @@ var gaNav = function() {
 
 	if(abTests.isInTreatment('topnav')) {
 		$topnavcu.click(goToContactForm);
-		$firstbox.css('margin-top','0');
-		$topnav.show();
+		if(browserCapabilities.isSmallDevice()) {
+			$navMenu.show();
+		} else {
+			$firstbox.css('margin-top','0');
+			$topnav.show();
+		}
+		$navMenu.click(toggleResponsiveMenu);
 	}
 }();

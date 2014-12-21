@@ -6,21 +6,47 @@
 // See: http://creativecommons.org/licenses/by-nc-nd/4.0/
 //
 
+.nav-menu {
+
+	cursor: pointer;
+	color: black;
+	width: 2rem;
+	height: 2rem;
+	@include border-radius(10%);
+	position: relative;
+	float:left;
+	font-size: 2rem;
+	display: none;
+}
+
+
 .nav {
 	font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Verdana, Tahoma, sans-serif;
 	font-size: 0.9rem;
-	max-width: $baseWidth;
-	margin: 0.5rem auto;
-	text-align: center;
-	overflow: hidden;
 	display: none;
+	@include bp(desktop) {
+		max-width: $baseWidth;
+		margin: 0.5rem auto;
+		text-align: center;
+		overflow: hidden;
+	}
+	@include bp(mobile) {
+		position: absolute;
+		top: 0;
+		width: 80%;
+		height: 100%;
+		z-index: -10;
+		background-color: #333;
+	}
 
 	.nav-li {
 		display: inline;
-		margin-left: 1.5rem;
-
-		&:first-child {
-			margin-left: 0;
+		@include bp(desktop) {
+			margin-left: 1.5rem;
+	
+			&:first-child {
+				margin-left: 0;
+			}
 		}
 
 		a {
@@ -30,6 +56,15 @@
 			@include border-radius(0.25rem);
 			padding: 1rem;
 
+			@include bp(mobile) {
+				border: 0px solid lighten(#333,10%);
+				border-width: 0 0 1px 0;
+				height: 2.5rem;
+				color: #ccc;
+				font-size: 1.5rem;
+				line-height: 2.5rem;
+				display: block;
+			}
 			&:hover {
 				color: #0f0f0f;
 				color: rgba(0, 0, 0, 0.7);
@@ -38,15 +73,15 @@
 		}
 
 		.fa {
-			margin-right: 0.5rem;
+			margin-right: 1rem;
 		}
 	}
 }
 
 .gototop {
 	position: fixed;
-	bottom: 2rem;
-	right: 2rem;
+	bottom: 1rem;
+	right: 4%;
 	background: rgb(50, 205, 251);
 	background: rgba(50, 205, 251, 0.7);
 	width: 2rem;

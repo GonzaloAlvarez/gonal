@@ -24,15 +24,16 @@
 
 </head>
 <body>
+	<nav class="nav" id="topnav">
+		<ul>
+			<li class="nav-li"><a href="#" id="topnavCM"><span class="fa fa-comment"></span>Contact Me</a></li>
+			<li class="nav-li"><a href="b/" target="_blank"><span class="fa fa-rss"></span>Blog</a></li>
+			<li class="nav-li"><a href="cv/CV-GonzaloAlvarez.pdf" target="_blank"><span class="fa fa-download"></span>Download CV</a></li>
+		</ul>
+	</nav>
 	<div class="main"> <!-- It might be worth looking into using semantic elements -->
-		<nav class="nav" id="topnav">
-			<ul>
-				<li class="nav-li"><a href="#" id="topnavCM"><span class="fa fa-comment"></span>Contact Me</a></li>
-				<li class="nav-li"><a href="b/" target="_blank"><span class="fa fa-rss"></span>Blog</a></li>
-				<li class="nav-li"><a href="cv/CV-GonzaloAlvarez.pdf" target="_blank"><span class="fa fa-download"></span>Download CV</a></li>
-			</ul>
-		</nav>
 		<div class="box">
+			<a href="#" class="nav-menu"><span class="fa fa-reorder"></span></a>
 			<div class="container profile">
 				  <div class="avatar"><span class="avatar-image"></span></div>
 			</div>
@@ -79,8 +80,8 @@
 				{{/each}}
 			</div>
 		</div>
+		<a name="contactme"></a>
 		<div class="box">
-			<a name="contactme"></a>
 			<div class="header">
 				<span class="fa fa-envelope"></span> 
 				Contact
