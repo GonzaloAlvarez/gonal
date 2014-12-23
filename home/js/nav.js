@@ -35,7 +35,9 @@ var gaNav = function() {
 	};
 
 	var goToContactForm = function() {
-		closeResponsiveMenu();
+		if(browserCapabilities.isSmallDevice()) {
+			closeResponsiveMenu();
+		}
 		$all.animate({
 			scrollTop: $contactForm.offset().top
 		}, animationSpeed);
