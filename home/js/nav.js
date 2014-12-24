@@ -35,9 +35,6 @@ var gaNav = function() {
 	};
 
 	var goToContactForm = function() {
-		if(browserCapabilities.isSmallDevice()) {
-			closeResponsiveMenu();
-		}
 		$all.animate({
 			scrollTop: $contactForm.offset().top
 		}, animationSpeed);
@@ -64,13 +61,14 @@ var gaNav = function() {
 	}
 
 	if(abTests.isInTreatment('topnav')) {
-		$topnavcu.click(goToContactForm);
 		if(browserCapabilities.isSmallDevice()) {
 			$navMenu.show();
+			$topnav.find('a').click(closeResponsiveMenu);
 		} else {
 			$firstbox.css('margin-top','0');
 			$topnav.show();
 		}
+		$topnavcu.click(goToContactForm);
 		$navMenu.click(toggleResponsiveMenu);
 	}
 }();
