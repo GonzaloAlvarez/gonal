@@ -17,7 +17,7 @@ module.exports = {
     },
 	all: {
 		files: {
-			src: ['home/js/ga.js','home/js/form.js', 'home/js/parse.js', 'home/js/abtests.js', 'home/js/nav.js', 'home/js/browcaps.js']
+			src: ['{<%= files.js.home %>}']
 		}
 	}
 }

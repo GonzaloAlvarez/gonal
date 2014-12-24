@@ -7,18 +7,7 @@
 //
 module.exports = {
 	js: {
-		src: [
-			"bower_components/jquery/dist/jquery.js",
-			"bower_components/jquery-form-validator/form-validator/jquery.form-validator.js",
-			"build/js/analytics.js",
-			"home/js/parse-1.3.1.js",
-			"home/js/parse.js",
-			"home/js/browcaps.js",
-			"home/js/abtests.js",
-			"home/js/ga.js",
-			"home/js/nav.js",
-			"home/js/form.js"
-		],
+		src: '<%= home.js %>',
 		dest: 'build/live/js/scripts.js'
 	}
 }

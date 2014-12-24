@@ -38,10 +38,10 @@ prod:
     - 'copy:fontawesome'
     - 'copy:opensans'
     - 'copy:statics'
+    - 'uglify'
     - 'assemble'
     - 'curl'
     - 'sitemap'
-    - 'uglify'
     - 'cssmin'
     - 'htmlmin'
 

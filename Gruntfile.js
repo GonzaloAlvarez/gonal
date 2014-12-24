@@ -13,8 +13,13 @@ module.exports = function(grunt) {
 		},
 		data: {
 			pkg: grunt.file.readJSON('package.json'),
+			files: grunt.file.readJSON('grunt/files.json'),
 			aws: grunt.file.readJSON('aws-s3.json'),
 			cf: grunt.file.readJSON('cloudflare.json')
+		},
+		postProcess: function(config) {
+			config.home = {};
+			config.home.js = config.files.js.home3p.concat(config.files.js.home);
 		}
 	});
 }
