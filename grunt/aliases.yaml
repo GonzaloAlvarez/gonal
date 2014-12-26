@@ -9,7 +9,7 @@
 dev:
     - 'concat:js'
     - 'compass'
-    - 'assemble'
+    - 'assemble:home'
     - 'copy:styles_dev'
 
 default:
@@ -22,13 +22,13 @@ default:
     - 'connect:server'
     - 'watch:home'
 
-blog:
+blogdev:
     - 'execute:metalsmith'
     - 'rename:blog'
 
-blogdev:
+blog:
     - 'clean'
-    - 'blog'
+    - 'blogdev'
     - 'connect:server'
     - 'watch:blog'
 
@@ -39,7 +39,7 @@ prod:
     - 'copy:opensans'
     - 'copy:statics'
     - 'uglify'
-    - 'assemble'
+    - 'assemble:home'
     - 'curl'
     - 'sitemap'
     - 'cssmin'

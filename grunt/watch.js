@@ -18,6 +18,6 @@ module.exports = {
 			livereload: true
 		},
 		files: ['blog/**/*'],
-		tasks: ['blog']
+		tasks: ['blogdev']
 	}
 }
