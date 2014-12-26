@@ -7,10 +7,10 @@
 ---
 
 dev:
+    - 'concat:js'
     - 'compass'
     - 'assemble'
     - 'copy:styles_dev'
-    - 'concat:js'
 
 default:
     - 'clean'
