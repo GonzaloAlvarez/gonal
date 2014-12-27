@@ -12,7 +12,7 @@ var Metalsmith = require('metalsmith'),
 	markdown = require('metalsmith-markdown'),
 	collections = require('metalsmith-collections'),
 	Handlebars = require('handlebars'),
-	path = require('metalsmith-path'),
+	path = require('path'),
 	_ = require('lodash'),
 	moment = require('moment'),
 	fs = require('fs');
@@ -38,6 +38,18 @@ Handlebars.registerHelper('moment', function(time,format){
 	  return moment(time).format(format);
 });
 
+postpath = function(opts) {
+	return function(files, ms, done) {
+		setImmediate(done);
+		Object.keys(files).forEach(function (file) {
+			if(!(/.html/.test(path.extname(file)))) return;
+			var data = files[file];
+			data.path = path.join(path.dirname(file), path.basename(file));
+			data.rootpath = path.dirname(file).replace(/[^\/]*/g,'.');
+		});
+	};
+};
+
 Metalsmith(__dirname)
 	.source('blog')
 	.destination('build/live/b')
@@ -49,7 +61,7 @@ Metalsmith(__dirname)
 		}})
 	)
 	.use(markdown())
-	.use(path())
+	.use(postpath())
 	.use(templates({
 		engine: 'handlebars',
 		directory: 'blog/templates'

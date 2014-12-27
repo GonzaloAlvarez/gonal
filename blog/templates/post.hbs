@@ -1,5 +1,14 @@
 {{>header}}
 	<article class="post">
-		{{{contents}}}
+		<header>
+			<h2>{{{title}}}</h2>
+			<div class="meta">
+				<time datetime="{{ date }}">{{ moment date 'MMM Do YYYY'}}</time>
+				<span class="author"><a href="../" rel="author">Gonzalo Alvarez</a></span>
+			</div>
+		</header>
+		<p class="post-contents">
+			{{{contents}}}
+		</p>
 	</article>
 {{>footer}}
