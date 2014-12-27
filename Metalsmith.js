@@ -13,19 +13,10 @@ var Metalsmith = require('metalsmith'),
 	collections = require('metalsmith-collections'),
 	Handlebars = require('handlebars'),
 	path = require('path'),
-	_ = require('lodash'),
+	postpath = require('./metalsmith/postpath'),
+	hb_partials = require('./metalsmith/hb_partials'),
 	moment = require('moment'),
 	fs = require('fs');
-
-var partials_folders = ['home/partials/common', 'blog/templates/partials'];
-
-_.each(partials_folders, function(folder) {
-	_.each(fs.readdirSync(folder),function(file){
-		var name = file.split(".")[0],
-			contents = fs.readFileSync(__dirname+"/"+folder+"/"+file).toString();
-		Handlebars.registerPartial(name,contents);
-	});
-});
 
 Handlebars.registerHelper('debug', function(optVal) {
 	console.log(this);
@@ -38,18 +29,6 @@ Handlebars.registerHelper('moment', function(time,format){
 	  return moment(time).format(format);
 });
 
-postpath = function(opts) {
-	return function(files, ms, done) {
-		setImmediate(done);
-		Object.keys(files).forEach(function (file) {
-			if(!(/.html/.test(path.extname(file)))) return;
-			var data = files[file];
-			data.path = path.join(path.dirname(file), path.basename(file));
-			data.rootpath = path.dirname(file).replace(/[^\/]*/g,'.');
-		});
-	};
-};
-
 Metalsmith(__dirname)
 	.source('blog')
 	.destination('build/live/b')
@@ -60,6 +39,7 @@ Metalsmith(__dirname)
 			reverse: true
 		}})
 	)
+	.use(hb_partials(['home/partials/common', 'blog/templates/partials']))
 	.use(markdown())
 	.use(postpath())
 	.use(templates({
