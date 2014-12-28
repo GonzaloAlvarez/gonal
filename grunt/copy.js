@@ -26,8 +26,12 @@ module.exports = {
 		src: ['**'],
 		dest: 'build/live/'
 	},
-	styles_dev: {
+	styles_home: {
 		src: 'build/css/styles.css',
 		dest: 'build/live/css/styles.css'
+	},
+	styles_blog: {
+		src: 'build/css/blog.css',
+		dest: 'build/live/b/css/styles.css'
 	}
 }

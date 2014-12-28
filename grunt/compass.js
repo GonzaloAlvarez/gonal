@@ -12,5 +12,12 @@ module.exports = {
 			cssDir: 'build/css',
 			specify: 'sass/styles.scss'
 		}
-	}
+	},
+    blog: {
+        options: {
+            sassDir: 'sass',
+            cssDir: 'build/css',
+            specify: 'sass/blog.scss'
+        }
+    }
 }

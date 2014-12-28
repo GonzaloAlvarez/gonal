@@ -8,9 +8,9 @@
 
 dev:
     - 'concat:js'
-    - 'compass'
+    - 'compass:home'
     - 'assemble:home'
-    - 'copy:styles_dev'
+    - 'copy:styles_home'
 
 default:
     - 'clean'
@@ -23,7 +23,9 @@ default:
     - 'watch:home'
 
 blogdev:
+    - 'compass:blog'
     - 'execute:metalsmith'
+    - 'copy:styles_blog'
     - 'rename:blog'
 
 blog:
@@ -34,7 +36,7 @@ blog:
 
 prod:
     - 'clean'
-    - 'compass'
+    - 'compass:home'
     - 'copy:fontawesome'
     - 'copy:opensans'
     - 'copy:statics'
