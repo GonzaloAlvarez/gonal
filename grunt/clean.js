@@ -7,4 +7,4 @@
 //
 module.exports = {
 	all: ['build', '.sass-cache']
-}
+};

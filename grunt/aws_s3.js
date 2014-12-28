@@ -33,4 +33,4 @@ module.exports = {
 			{expand:true, cwd: 'build/deploy/', src: ['**'], dest:''}
 		]
 	}
-}
+};

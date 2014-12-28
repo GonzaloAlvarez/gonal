@@ -6,19 +6,5 @@
 // See: http://creativecommons.org/licenses/by-nc-nd/4.0/
 //
 module.exports = {
-	options: {
-		url: 'https://gon.al',
-		locale: "en_GB",
-		nokey: true
-	},
-	desktop: {
-		options: {
-			strategy: 'desktop'
-		}
-	},
-	mobile: {
-		options: {
-			strategy: 'mobile'
-		}
-	}
+    target: {}
 };

@@ -10,4 +10,4 @@ module.exports = {
 		src: ['build/live/b/index.hbs'],
 		dest: 'build/live/b/index.html'
 	}
-}
+};

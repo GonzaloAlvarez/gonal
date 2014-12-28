@@ -15,4 +15,4 @@ module.exports = {
 		},
 		src: ['Phantom.js']
 	}
-}
+};

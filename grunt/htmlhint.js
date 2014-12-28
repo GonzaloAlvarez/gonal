@@ -12,4 +12,4 @@ module.exports = {
 		},
 		src: ['build/live/*.html']
 	}
-}
+};

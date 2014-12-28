@@ -9,4 +9,4 @@ module.exports = {
 	dist: {
 		src: ['build/live/css/styles.css']
 	}
-}
+};

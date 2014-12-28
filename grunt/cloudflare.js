@@ -12,4 +12,4 @@ module.exports = {
 		email: '<%= cf.Email %>',
 		z: 'gon.al'
 	}
-}
+};

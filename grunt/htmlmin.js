@@ -13,4 +13,4 @@ module.exports = {
 		},
 		files: {'build/live/index.html': 'build/live/*.html'}
 	}
-}
+};

@@ -10,4 +10,4 @@ module.exports = {
 		src: '<%= home.js %>',
 		dest: 'build/live/js/scripts.js'
 	}
-}
+};

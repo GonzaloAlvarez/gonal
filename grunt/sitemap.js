@@ -10,4 +10,4 @@ module.exports = {
 		siteRoot: 'build/live/',
 		homepage: 'https://gon.al'
 	}
-}
+};

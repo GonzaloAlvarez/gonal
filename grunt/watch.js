@@ -20,4 +20,4 @@ module.exports = {
 		files: ['blog/**/*'],
 		tasks: ['blogdev']
 	}
-}
+};

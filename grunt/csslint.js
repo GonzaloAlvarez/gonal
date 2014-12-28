@@ -13,4 +13,4 @@ module.exports = {
 		},
 		src: ['build/css/styles.css']
 	}
-}
+};

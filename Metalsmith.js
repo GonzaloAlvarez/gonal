@@ -49,4 +49,4 @@ Metalsmith(__dirname)
 	.use(ignore([
 		'templates/**'
 	]))
-	.build(function(err) { if(err) throw err; });
+	.build(function(err) { if(err) { throw err; }});

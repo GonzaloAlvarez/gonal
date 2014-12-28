@@ -9,4 +9,4 @@ module.exports = {
 	css: {
 		files: {'build/live/css/styles.css': 'build/css/styles.css'}
 	}
-}
+};

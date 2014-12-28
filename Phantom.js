@@ -15,13 +15,13 @@ var phantom_options = {
 			process.exit(0);
 		}
 	}
-}
+};
 
 var CONSTANTS = {
 	'INIT_TESTS': '__INIT_TESTS__**',
 	'END_TESTS_OK': '__END_TESTS_OK_**',
 	'END_TESTS_FAIL': '__END_TESTS_FAIL_**'
-}
+};
 
 var args = process.argv.slice(2);
 

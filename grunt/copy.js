@@ -34,4 +34,4 @@ module.exports = {
 		src: 'build/css/blog.css',
 		dest: 'build/live/b/css/styles.css'
 	}
-}
+};

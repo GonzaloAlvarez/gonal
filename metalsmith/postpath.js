@@ -16,7 +16,7 @@ function plugin(opts) {
 		Object.keys(files).forEach(function (file) {
 			var data = files[file];
             data.rootpath = './';
-			if(!(/.html/.test(path.extname(file)))) return;
+			if(!(/.html/.test(path.extname(file)))) { return; }
 			data.path = path.join(path.dirname(file), path.basename(file));
 			data.rootpath = path.dirname(file).replace(/[^\/]*/g,'.') + '/';
 		});

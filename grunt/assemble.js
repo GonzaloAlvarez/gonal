@@ -16,4 +16,4 @@ module.exports = {
 		src: ['home/index.hbs'],
 		dest: 'build/live/index.html'
 	}
-}
+};

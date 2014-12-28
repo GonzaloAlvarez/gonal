@@ -10,4 +10,4 @@ module.exports = {
 		dest: 'build/js/analytics.js',
 		src: 'http://www.google-analytics.com/analytics.js'
 	}
-}
+};

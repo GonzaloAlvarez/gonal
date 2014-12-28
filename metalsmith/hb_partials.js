@@ -13,8 +13,8 @@ var _ = require('lodash'),
 module.exports = plugin;
 
 function plugin(opts) {
-	if('string' == typeof opts) opts = [opts];
-	if(opts instanceof Array) opts= { partials: opts };
+	if('string' === typeof opts) { opts = [opts];}
+	if(opts instanceof Array) { opts= { partials: opts };}
 	opts = opts || {};
 	var partials = opts.partials || [];
 	return function(files, ms, done) {

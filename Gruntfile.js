@@ -22,4 +22,5 @@ module.exports = function(grunt) {
 			config.home.js = config.files.js.home3p.concat(config.files.js.home);
 		}
 	});
-}
+    grunt.loadTasks('tasks');
+};

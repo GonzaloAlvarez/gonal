@@ -13,6 +13,13 @@
 			"home/js/ga.js",
 			"home/js/nav.js",
 			"home/js/form.js"
-		]
+		],
+        "engine": [
+            "Gruntfile.js",
+            "Phantom.js",
+            "metalsmith/*.js",
+            "grunt/*.js",
+            "Metalsmith.js"
+        ]
 	}
 }
