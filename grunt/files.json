@@ -17,6 +17,7 @@
         "engine": [
             "Gruntfile.js",
             "Phantom.js",
+            "tasks/*.js",
             "metalsmith/*.js",
             "grunt/*.js",
             "Metalsmith.js"
