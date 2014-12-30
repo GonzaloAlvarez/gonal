@@ -12,17 +12,8 @@ module.exports = {
 				'bower_components/jquery/dist/jquery.js',
 				'bower_components/jasmine-jquery/lib/jasmine-jquery.js'
 			],
-			specs: 'home/js/*.spec.js',
-			output: 'build/SpecRunner.html',
-			phantomjs: {
-				page: {
-					viewportSize: {
-						width: 2000,
-						height: 1400
-					}
-				}
-			}
+			specs: 'home/js/parse.spec.js',
 		},
-		src: []
+		src: ['home/js/parse.js']
 	}
 };
