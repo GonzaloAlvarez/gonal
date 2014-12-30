@@ -1,4 +1,4 @@
-// SCSS GonAl project - Main styles file
+// SCSS GonAl project - Home styles file
 //
 // Gonzalo Alvarez, 2014
 // Work licensed under
@@ -30,14 +30,6 @@ $browser-minimum-versions: (
   'ie': "8"
 );
 
-body {
-	font-family: 'Open Sans', sans-serif;
-	background-color: #efefef;
-	@include bp(desktop) {
-		background: url($imagesPath + '/brushed.png');
-	}
-}
-
 @include bp(mobile) {
 	.main.open {
 		position: fixed;
@@ -46,48 +38,8 @@ body {
 	}
 }
 
-a {
-	text-decoration: none;
-	color: #02baef;
-}
-
-h1 {
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 400;
-	font-size: 2.0rem;
-	margin: 0;
-	line-height: 2.5rem;
-}
-
-h2 {
-	font-family: 'Open Sans', sans-serif;
-	margin: 0;
-	color: #AAAAAA;
-	font-weight: 400;
-	font-size: 1.3rem;
-	line-height: 1.6rem;
-}
-
-@include bp(mobile) {
-	html {
-		font-size: 14px;
-	}
-
-	.large_only {
-		display: none;
-	}
-}
-
-@include bp(desktop) {
-	html {
-		font-size: 16px;
-	}
-
-	.small_only {
-		display: none;
-	}
-}
-
+@import "mixins";
+@import "main";
 @import "avatar";
 @import "container";
 @import "social-icons";
