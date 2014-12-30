@@ -30,6 +30,8 @@ blogdev:
 
 blog:
     - 'clean'
+    - 'copy:opensans'
+    - 'copy:statics'
     - 'blogdev'
     - 'connect:server'
     - 'watch:blog'

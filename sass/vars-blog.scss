@@ -1,4 +1,4 @@
-// SCSS GonAl project - Blog styles
+// SCSS GonAl project - Variables definition file
 //
 // Gonzalo Alvarez, 2014
 // Work licensed under
@@ -6,9 +6,8 @@
 // See: http://creativecommons.org/licenses/by-nc-nd/4.0/
 //
 
-@import "vars-blog";
-@import "open-sans";
-@import "compass/reset";
+$fa-font-path: "../../fonts";
+$OpenSansPath: "../../fonts";
+$imagesPath: "../../img";
 
-@import "mixins";
-@import "main";
+$baseWidth: 960px;

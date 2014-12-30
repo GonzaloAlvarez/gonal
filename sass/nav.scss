@@ -57,7 +57,7 @@
 			padding: 1rem;
 
 			@include bp(mobile) {
-				border: 0px solid lighten(#333,10%);
+				border: 0 solid lighten(#333,10%);
 				border-width: 0 0 1px 0;
 				height: 2.5rem;
 				color: #ccc;
