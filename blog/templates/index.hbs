@@ -1,15 +1,15 @@
 {{>header}}
-	<main class="main-index">
+	<main class="main-section">
 	{{#posts}}
-		<article class="post-excerpt">
+		<article class="post-main">
 			<header>
-				<h2><a href="{{path}}">{{{title}}}</a></h2>
-				<div class="meta">
-					<time datetime="{{ date }}">{{ moment date 'MMM Do YYYY'}}</time>
-					<span class="author"><a href="../" rel="author">Gonzalo Alvarez</a></span>
+				<a href="{{path}}"><h2 class="post-title">{{{title}}}</h2></a>
+				<div class="post-meta">
+					Published
+					<time datetime="{{ date }}" pubdate>{{ moment date 'MMMM Do YYYY'}}</time>
 				</div>
 			</header>
-			<section class="excerpt">
+			<section class="post-content">
 				<p>{{{contents}}}</p>
 			</section>
 		</article>
