@@ -19,6 +19,13 @@ module.exports = {
 		src: ['**'],
 		dest: 'build/live/fonts/'
 	},
+	bitter: {
+		expand: true,
+		flatten: false,
+		cwd: 'bower_components/bitter-fontface/fonts',
+		src: ['**'],
+		dest: 'build/live/fonts/'
+	},
 	statics: {
 		expand: true,
 		flatten: false,

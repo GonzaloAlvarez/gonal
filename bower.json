@@ -10,6 +10,7 @@
     "jquery-form-validator": "~2.1.47",
     "jasmine-reporters": "~2.0.3",
     "jasmine": "~2.1.3",
-    "jasmine-jquery": "~2.0.5"
+    "jasmine-jquery": "~2.0.5",
+    "bitter-fontface": "~0.1.3"
   }
 }
