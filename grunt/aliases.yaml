@@ -31,6 +31,7 @@ blogdev:
 blog:
     - 'clean'
     - 'copy:opensans'
+    - 'copy:bitter'
     - 'copy:statics'
     - 'blogdev'
     - 'connect:server'

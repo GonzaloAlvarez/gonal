@@ -1,0 +1,42 @@
+// SCSS GonAl project - Blog Main styles
+//
+// Gonzalo Alvarez, 2014
+// Work licensed under
+// Creative Commons Attributions-NonCommercial-NoDerivaties 4.0 International License
+// See: http://creativecommons.org/licenses/by-nc-nd/4.0/
+//
+
+body {
+    margin:0;
+    font-family: $opensansFont;
+	background-color: #efefef;
+	@include bp(desktop) {
+		background: url($imagesPath + '/brushed.png');
+	}
+}
+
+a {
+  text-decoration: none;
+}
+
+@include bp(mobile) {
+	html {
+		font-size: 14px;
+	}
+
+	.large_only {
+		display: none;
+	}
+}
+
+@include bp(desktop) {
+	html {
+		font-size: 16px;
+	}
+
+	.small_only {
+		display: none;
+	}
+}
+
+
