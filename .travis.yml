@@ -6,4 +6,4 @@ before_script:
   - gem install compass
   - npm install -g grunt-cli bower
   - bower install
-script: "grunt check"
+script: "grunt check --verbose"
