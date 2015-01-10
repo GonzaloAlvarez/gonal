@@ -1,4 +1,4 @@
-// JS GonAl project - Jasmine Iteg task for Grunt
+// JS GonAl project - Phantom screenshot task
 //
 // Gonzalo Alvarez, 2014
 // Work licensed under
@@ -14,26 +14,24 @@ var phantom_options = {
 };
 
 module.exports = function(grunt) {
-    grunt.registerMultiTask('jasmineinteg', 'Log stuff.', function() {
-        var done = this.async();
-        if(this.target === 'screenshot') {
-            var screenshotPath = path.join(process.cwd(), this.file.dest);
-            var srcUrl = 'file://' + path.join(process.cwd(), this.file.src);
-            var srcWidth = this.data.width;
-            var srcHeight = this.data.height;
-            phantom.create(function(ph) {
-                ph.createPage(function(page) {
-                    page.set('viewportSize', {
-                        width: srcWidth,
-                        height: srcHeight
-                    });
-                    page.open(srcUrl,function(status) {
-                        setTimeout(function() {
-                            page.render(screenshotPath, {format:'png'}, function(err){done(true);});
-                        }, 200);
-                    });
-                });
-            }, phantom_options);
-        }
-    });
+	grunt.registerMultiTask('screenshot', 'Creates a PhantomJS screenshot.', function() {
+		var done = this.async();
+		var screenshotPath = path.join(process.cwd(), this.file.dest);
+		var srcUrl = 'file://' + path.join(process.cwd(), this.file.src);
+		var srcWidth = this.data.width;
+		var srcHeight = this.data.height;
+		phantom.create(function(ph) {
+		ph.createPage(function(page) {
+			page.set('viewportSize', {
+					width: srcWidth,
+					height: srcHeight
+				});
+				page.open(srcUrl,function(status) {
+					setTimeout(function() {
+						page.render(screenshotPath, {format:'png'}, function(err){done(true);});
+					}, 200);
+				});
+			});
+		}, phantom_options);
+	});
 };
