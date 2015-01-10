@@ -4,15 +4,15 @@
 			"bower_components/jquery/dist/jquery.js",
 			"bower_components/jquery-form-validator/form-validator/jquery.form-validator.js",
 			"build/js/analytics.js",
-			"home/js/parse-1.3.1.js"
+			"js/parse-1.3.1.js"
 		],
 		"home": [
-			"home/js/parse.js",
-			"home/js/browcaps.js",
-			"home/js/abtests.js",
-			"home/js/ga.js",
-			"home/js/nav.js",
-			"home/js/form.js"
+			"js/parse.js",
+			"js/browcaps.js",
+			"js/abtests.js",
+			"js/ga.js",
+			"js/nav.js",
+			"js/form.js"
 		],
         "engine": [
             "Gruntfile.js",
@@ -21,6 +21,14 @@
             "metalsmith/*.js",
             "grunt/*.js",
             "Metalsmith.js"
-        ]
+        ],
+        "jasmine": {
+            "src": [
+                "js/parse.js"
+            ],
+            "specs": [
+                "js/parse.spec.js"
+            ]
+        }
 	}
 }

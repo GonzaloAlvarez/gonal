@@ -12,8 +12,8 @@ module.exports = {
 				'bower_components/jquery/dist/jquery.js',
 				'bower_components/jasmine-jquery/lib/jasmine-jquery.js'
 			],
-			specs: 'home/js/parse.spec.js',
+			specs: '<%= files.js.jasmine.specs %>',
 		},
-		src: ['home/js/parse.js']
+		src: ['<%= files.js.jasmine.src %>']
 	}
 };
