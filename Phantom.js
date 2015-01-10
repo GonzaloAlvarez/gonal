@@ -78,7 +78,7 @@ phantom.create(function(ph) {
 						page.injectJs('bower_components/jasmine/lib/jasmine-core/json2.js');
 						page.injectJs('bower_components/jasmine-reporters/src/terminal_reporter.js');
 						page.injectJs('bower_components/jasmine-jquery/lib/jasmine-jquery.js');
-						page.injectJs('home/js/main.spec.js');
+						page.injectJs('js/main.spec.js');
 
 						page.evaluate(function(c) {
 							jasmine.getEnv().addReporter(new jasmineReporters.TerminalReporter({
