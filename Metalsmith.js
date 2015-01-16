@@ -16,6 +16,7 @@ var Metalsmith = require('metalsmith'),
 	postpath = require('./metalsmith/postpath'),
 	hb_partials = require('./metalsmith/hb_partials'),
 	moment = require('moment'),
+    drafts = require('metalsmith-drafts'),
 	fs = require('fs');
 
 Handlebars.registerHelper('debug', function(optVal) {
@@ -32,6 +33,7 @@ Handlebars.registerHelper('moment', function(time,format){
 Metalsmith(__dirname)
 	.source('blog')
 	.destination('build/live/b')
+    .use(drafts())
 	.use(collections({
 		posts: {
 			pattern: 'posts/**/*',

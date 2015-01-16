@@ -2,6 +2,7 @@
 template: post.hbs
 title: Yup, just another technical blog
 date: 2014-11-20
+draft: true
 ---
 
 It's all about personal branding, [they say]( http://chase-seibert.github.io/blog/2014/08/01/why-blogging.html). If you plan on having a career in the software industry, you'd better start blogging, [others may argue]( http://emptysqua.re/blog/write-an-excellent-programming-blog/).
