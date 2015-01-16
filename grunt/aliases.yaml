@@ -64,6 +64,7 @@ chk:
     - 'cssmetrics'
     - 'jshint'
     - 'jasmine:home'
+    - 'casper:home'
     - 'execute:jasmineInteg'
 
 check:
