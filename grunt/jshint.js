@@ -17,7 +17,7 @@ module.exports = {
     },
 	all: {
 		files: {
-			src: ['{<%= files.js.home %>}', '{<%= files.js.engine %>}']
+			src: ['{<%= files.js.home %>}', '{<%= files.js.engine %>}', '{<%= files.js.blog %>}']
 		}
 	}
 };

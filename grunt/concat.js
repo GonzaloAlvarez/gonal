@@ -6,8 +6,12 @@
 // See: http://creativecommons.org/licenses/by-nc-nd/4.0/
 //
 module.exports = {
-	js: {
+	home: {
 		src: '<%= home.js %>',
 		dest: 'build/live/js/scripts.js'
+	},
+	blog: {
+		src: '<%= blog.js %>',
+		dest: 'build/live/b/js/scripts.js'
 	}
 };

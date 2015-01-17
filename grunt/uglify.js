@@ -8,7 +8,8 @@
 module.exports = {
 	all: {
 		files: {
-			"build/live/js/scripts.js": ['<%= home.js %>']
+			"build/live/js/scripts.js": ['<%= home.js %>'],
+            "build/live/b/js/scripts.js": ['<%= blog.js %>']
 		},
 		options: {
 			preserveComments: false,
