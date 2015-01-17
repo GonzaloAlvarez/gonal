@@ -2,7 +2,7 @@
 icons:
   - href: 'mailto:me@gon.al'
     icon: 'envelope'
-  - href: 'http://gon.al/b/'
+  - href: 'b/'
     icon: 'wordpress'
   - href: 'http://es.linkedin.com/in/gonzaloalvarezbarrio/'
     icon: 'linkedin'

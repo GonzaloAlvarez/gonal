@@ -13,6 +13,6 @@ module.exports = {
         engine: 'phantomjs'
     },
     home: {
-        src: ['js/home_casper.js']
+        src: ['js/tests/home.casper.js']
     }
 };

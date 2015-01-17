@@ -7,7 +7,7 @@
 ---
 
 dev:
-    - 'concat:js'
+    - 'concat:home'
     - 'compass:home'
     - 'assemble:home'
     - 'copy:styles_home'
@@ -40,8 +40,12 @@ blog:
 prod:
     - 'clean'
     - 'compass:home'
+    - 'compass:blog'
+    - 'execute:metalsmith'
+    - 'rename:blog'
     - 'copy:fontawesome'
     - 'copy:opensans'
+    - 'copy:bitter'
     - 'copy:statics'
     - 'uglify'
     - 'assemble:home'

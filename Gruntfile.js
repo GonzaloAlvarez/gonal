@@ -20,6 +20,8 @@ module.exports = function(grunt) {
 		postProcess: function(config) {
 			config.home = {};
 			config.home.js = config.files.js.home3p.concat(config.files.js.home);
+            config.blog = {};
+            config.blog.js = config.files.js.blog3p.concat(config.files.js.blog);
 		}
 	});
     grunt.loadTasks('tasks');
