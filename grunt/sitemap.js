@@ -8,6 +8,6 @@
 module.exports = {
 	dist: {
 		siteRoot: 'build/live/',
-		homepage: 'https://gon.al'
+		homepage: 'https://gon.al/'
 	}
 };

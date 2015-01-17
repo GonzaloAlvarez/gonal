@@ -11,6 +11,11 @@ module.exports = {
 			removeComments: true,
 			collapseWhitespace: true
 		},
-		files: {'build/live/index.html': 'build/live/*.html'}
+		files: [{
+            cwd: 'build',
+            src: '**/*.html',
+            expand: true,
+            dest: 'build'
+        }]
 	}
 };
