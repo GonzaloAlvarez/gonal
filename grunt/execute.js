@@ -8,11 +8,5 @@
 module.exports = {
 	metalsmith: {
 		src: ['Metalsmith.js']
-	},
-	jasmineInteg: {
-		options: {
-			args: ['jasmine']
-		},
-		src: ['Phantom.js']
 	}
 };
