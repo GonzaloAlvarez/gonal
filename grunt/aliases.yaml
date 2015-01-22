@@ -69,7 +69,6 @@ chk:
     - 'jshint'
     - 'jasmine:home'
     - 'casper:home'
-    - 'execute:jasmineInteg'
 
 check:
     - 'prod'
