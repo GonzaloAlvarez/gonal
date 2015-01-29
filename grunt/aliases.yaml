@@ -69,6 +69,7 @@ chk:
     - 'jshint'
     - 'jasmine:home'
     - 'casper:home'
+    - 'casper:links'
 
 check:
     - 'prod'
