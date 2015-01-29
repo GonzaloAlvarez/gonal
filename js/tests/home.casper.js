@@ -1,3 +1,11 @@
+// JS GonAl project - Casper integration tests
+//
+// Gonzalo Alvarez, 2014
+// Work licensed under
+// Creative Commons Attributions-NonCommercial-NoDerivaties 4.0 International License
+// See: http://creativecommons.org/licenses/by-nc-nd/4.0/
+//
+
 casper.test.begin('Test home site', function suite(test) {
     casper.start('file://' + casper.cli.options.basepath + '/index.html', function() {
         test.assertTitle('Gonzalo Alvarez - Software Development Engineer');

@@ -8,11 +8,19 @@
 module.exports = {
     options: {
         verbose: true,
-        test: true,
         args: ['--basepath=' + __dirname + '/../build/live'],
         engine: 'phantomjs'
     },
     home: {
+        options: {
+            test: true
+        },
         src: ['js/tests/home.casper.js']
+    },
+    links: {
+        options: {
+            test: true
+        },
+        src: ['js/tests/links.casper.js']
     }
 };
