@@ -53,6 +53,8 @@ prod:
     - 'sitemap'
     - 'cssmin'
     - 'htmlmin'
+    - 'screenshot'
+    - 'resize_crop:meta'
 
 deploy:
     - 'prod'
