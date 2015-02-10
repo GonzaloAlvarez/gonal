@@ -6,10 +6,15 @@
 // See: http://creativecommons.org/licenses/by-nc-nd/4.0/
 //
 module.exports = {
-	screenshot: {
-		src: 'build/live/index.html',
-		dest: 'build/meta.png',
-		width: 1200,
-		height: 900
-	}
+    meta: {
+        options: {
+            gravity: "North",
+            width: 1200,
+            height: 1200,
+            format: "png"
+        },
+        files: {
+            'build/live': ['build/meta.png']
+        }
+    }
 };
