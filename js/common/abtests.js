@@ -15,17 +15,13 @@ var abTests = function() {
 	};
 
 	return {
-		isInControl: function(experiment) {
+		getTreatment: function(experiment) {
+            var deferred = $.Deferred();
 			if(getURLParameter(experiment) === '1') {
-				return false;
+				deferred.resolve('T1');
 			}
-			return true;
-		},
-		isInTreatment: function(experiment) {
-			if(getURLParameter(experiment) === '1') {
-				return true;
-			}
-			return false;
+			deferred.resolve('C');
+            return deferred;
 		}
 	};
 }();
