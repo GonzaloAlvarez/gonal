@@ -16,7 +16,11 @@ body {
 
 a {
 	text-decoration: none;
-	color: #02baef;
+	color: $primaryColor;
+}
+
+.container a {
+    @extend .fancy-link;
 }
 
 h1 {
