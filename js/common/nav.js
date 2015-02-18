@@ -62,17 +62,11 @@ var gaNav = function() {
         }
 	});
 
-	abTests.getTreatment('topnav').done(function(treatment) {
-        if(treatment === 'T1') {
-    		if(browserCapabilities.isSmallDevice()) {
-	    		$navMenu.show();
-		    	$topnav.find('a').click(closeResponsiveMenu);
-    		} else {
-	    		$firstbox.css('margin-top','0');
-		    	$topnav.show();
-    		}
-	    	$topnavcu.click(goToContactForm);
-		    $navMenu.click(toggleResponsiveMenu);
-        }
-	});
+    if(browserCapabilities.isSmallDevice()) {
+        $topnav.find('a').click(closeResponsiveMenu);
+    } else {
+        $firstbox.css('margin-top','0');
+    }
+    $topnavcu.click(goToContactForm);
+    $navMenu.click(toggleResponsiveMenu);
 }();
