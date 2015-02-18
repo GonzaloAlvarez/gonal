@@ -7,7 +7,6 @@
 //
 
 .nav-menu {
-
 	cursor: pointer;
 	color: black;
 	width: 2rem;
@@ -16,14 +15,15 @@
 	position: relative;
 	float:left;
 	font-size: 2rem;
-	display: none;
+    @include bp(desktop) {
+    	display: none;
+    }
 }
 
 
 .nav {
 	font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Verdana, Tahoma, sans-serif;
 	font-size: 0.9rem;
-	display: none;
 	@include bp(desktop) {
 		max-width: $baseWidth;
 		margin: 0.5rem auto;
@@ -31,6 +31,7 @@
 		overflow: hidden;
 	}
 	@include bp(mobile) {
+	    display: none;
 		position: absolute;
 		top: 0;
 		width: 80%;
