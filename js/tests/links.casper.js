@@ -15,7 +15,7 @@ casper.getLinks = function getLinks() {
             var linkHref = link.getAttribute('href');
             if((/^http/).test(linkHref)) {
                 return linkHref;
-            } 
+            }
             if((/^mailto/).test(linkHref) || linkHref === '#' || !linkHref) {
                 return '#';
             }
@@ -33,6 +33,8 @@ casper.visit = function visit(link) {
     this.thenOpen(link, function(response) {
         if(response.status === 500 && this.getPageContent().length > 0) {
             this.warn('Opening [' + link + '] has content but throws response 500 (theserverlabs.com?)');
+        } else if(response.status === 999 && link.indexOf('linkedin') > -1) {
+            this.warn('Opening [' + link + '] returns 999 due to likedin filtering');
         } else if(response.status !== 200) {
             this.die('Opening [' + link + '] has failed with response: ' + response.status, 1);
         } else {
