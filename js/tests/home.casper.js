@@ -6,12 +6,14 @@
 // See: http://creativecommons.org/licenses/by-nc-nd/4.0/
 //
 
-casper.test.begin('Test home site', function suite(test) {
+casper.test.begin('** GONAL **', function suite(test) {
     casper.start('file://' + casper.cli.options.basepath + '/index.html', function() {
+        test.comment('GENERAL HTML PROPERTIES');
         test.assertTitle('Gonzalo Alvarez - Software Development Engineer');
         test.assertElementCount('.box', 5);
         test.assertElementCount('.box .header', 4);
 
+        test.comment('TOP AVATAR SECTION');
         test.comment('Testing top avatar box');
         test.assertVisible('.box .container .avatar', 'Avatar selector is visible');
         test.assertEval(function() {
@@ -19,7 +21,7 @@ casper.test.begin('Test home site', function suite(test) {
         }, 'Avatar image is used as background');
         test.assertResourceExists('avatar.png', 'Avatar image is loaded properly');
 
-        test.comment('Testing headers');
+        test.comment('Testing header');
         test.assertSelectorHasText('.box .container.info h1', 'Gonzalo Alvarez');
         test.assertSelectorHasText('.box .container.info h2', 'Software Development Engineer');
 
@@ -37,7 +39,7 @@ casper.test.begin('Test home site', function suite(test) {
 
         for(cventry = 0; cventry < 4; cventry++) {
             test.assertEval(function(entry) {
-                return ($('.box:nth(1) .cventry:nth(' + entry + ') .dates').is(":visible") && 
+                return ($('.box:nth(1) .cventry:nth(' + entry + ') .dates').is(":visible") &&
                     $('.box:nth(1) .cventry:nth(' + entry + ') .achievement').is(":visible"));
             }, 'Checking dates and achievements visibility on cventry ' + cventry, cventry);
         }
