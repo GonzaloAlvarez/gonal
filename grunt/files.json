@@ -3,7 +3,6 @@
 		"home3p": [
 			"bower_components/jquery/dist/jquery.js",
 			"bower_components/jquery-form-validator/form-validator/jquery.form-validator.js",
-			"build/js/analytics.js",
 			"js/lib/parse-1.3.1.js"
 		],
 		"home": [
@@ -15,8 +14,7 @@
 			"js/home/form.js"
 		],
    		"blog3p": [
-			"bower_components/jquery/dist/jquery.js",
-			"build/js/analytics.js"
+			"bower_components/jquery/dist/jquery.js"
 		],
 		"blog": [
 			"js/common/ga.js"
