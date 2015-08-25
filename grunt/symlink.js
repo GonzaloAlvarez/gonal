@@ -23,6 +23,10 @@ module.exports = {
             {
                 src: 'blog/_config.yml',
                 dest: 'build/blog/_config.yml'
+            },
+            {
+                src: 'blog/scripts',
+                dest: 'build/blog/scripts'
             }
         ]
     }
