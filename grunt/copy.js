@@ -37,8 +37,18 @@ module.exports = {
 		src: 'build/css/styles.css',
 		dest: 'build/live/css/styles.css'
 	},
-	styles_blog: {
-		src: 'build/css/blog.css',
-		dest: 'build/live/b/css/styles.css'
-	}
+    blog_theme_layout: {
+        expand: true,
+        flatten: false,
+        cwd: 'blog/theme',
+        src: ['**'],
+        dest: 'build/blog/themes/gonal/'
+    },
+    blog_images: {
+        expand: true,
+        flatten: false,
+        cwd: 'blog/images',
+        src: ['**'],
+        dest: 'build/live/b/assets/img'
+    }
 };

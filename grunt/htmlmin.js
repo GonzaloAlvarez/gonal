@@ -12,10 +12,10 @@ module.exports = {
 			collapseWhitespace: true
 		},
 		files: [{
-            cwd: 'build',
+            cwd: 'build/live/',
             src: '**/*.html',
             expand: true,
-            dest: 'build'
+            dest: 'build/live/'
         }]
 	}
 };

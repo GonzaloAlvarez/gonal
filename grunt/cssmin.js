@@ -9,7 +9,7 @@ module.exports = {
 	css: {
 		files: {
             'build/live/css/styles.css': 'build/css/styles.css',
-            'build/live/b/css/styles.css': 'build/css/blog.css'
+            'build/live/b/assets/css/styles.css': 'build/live/b/assets/css/styles.css'
         }
 	}
 };

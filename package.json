@@ -4,6 +4,9 @@
   "description": "GonzaloAlvarez.Es site",
   "author": "Gonzalo Alvarez",
   "license": "ISC",
+  "hexo": {
+    "version": "3.1.1"
+  },
   "devDependencies": {
     "assemble": "^0.4.42",
     "grunt": "^0.4.5",
@@ -21,12 +24,13 @@
     "grunt-contrib-htmlmin": "^0.3.0",
     "grunt-contrib-jasmine": "^0.8.1",
     "grunt-contrib-jshint": "^0.10.0",
-    "grunt-contrib-rename": "0.0.3",
+    "grunt-contrib-symlink": "^0.3.0",
     "grunt-contrib-uglify": "^0.6.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-css-metrics": "^0.1.2",
     "grunt-curl": "^2.0.3",
     "grunt-execute": "^0.2.2",
+    "grunt-hexo": "^0.1.0",
     "grunt-htmlhint": "^0.4.1",
     "grunt-pagespeed": "^0.3.0",
     "grunt-resize-crop": "0.0.1",
@@ -46,5 +50,17 @@
     "path": "^0.4.9",
     "phantom": "^0.7.1",
     "phantomjs": "^1.9.12"
+  },
+  "dependencies": {
+    "hexo": "^3.1.0",
+    "hexo-generator-archive": "^0.1.2",
+    "hexo-generator-category": "^0.1.2",
+    "hexo-generator-feed": "^1.0.3",
+    "hexo-generator-index": "^0.1.2",
+    "hexo-generator-tag": "^0.1.1",
+    "hexo-renderer-ejs": "^0.1.0",
+    "hexo-renderer-marked": "^0.2.4",
+    "hexo-renderer-stylus": "^0.2.0",
+    "hexo-server": "^0.1.2"
   }
 }

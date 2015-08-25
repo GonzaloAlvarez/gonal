@@ -15,9 +15,9 @@ module.exports = {
 	},
     blog: {
         options: {
-            sassDir: 'sass',
-            cssDir: 'build/css',
-            specify: 'sass/blog.scss'
+            sassDir: 'sass/blog',
+            cssDir: 'build/blog/themes/gonal/source/assets/css',
+            specify: 'sass/blog/styles.scss'
         }
     }
 };

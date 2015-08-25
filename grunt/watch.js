@@ -11,13 +11,13 @@ module.exports = {
 			livereload: true
 		},
 		files: ['sass/**/*', 'static/**/*', 'home/**/*'],
-		tasks: ['dev']
+		tasks: ['home']
 	},
 	blog: {
 		options: {
 			livereload: true
 		},
-		files: ['blog/**/*'],
-		tasks: ['blogdev']
+		files: ['blog/**/*', 'sass/**/*'],
+		tasks: ['blog']
 	}
 };

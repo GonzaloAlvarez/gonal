@@ -6,33 +6,22 @@
 # See: http://creativecommons.org/licenses/by-nc-nd/4.0/
 ---
 
-dev:
+home:
     - 'concat:home'
     - 'compass:home'
     - 'assemble:home'
     - 'copy:styles_home'
-
-default:
-    - 'clean'
-    - 'copy:fontawesome'
-    - 'copy:opensans'
-    - 'copy:statics'
-    - 'dev' 
     - 'connect:server'
     - 'watch:home'
 
-blogdev:
-    - 'compass:blog'
-    - 'execute:metalsmith'
-    - 'copy:styles_blog'
-    - 'rename:blog'
-
 blog:
-    - 'clean'
-    - 'copy:opensans'
-    - 'copy:bitter'
-    - 'copy:statics'
-    - 'blogdev'
+    - 'compass:blog'
+    - 'copy:blog_theme_layout'
+    - 'concat:blog'
+    - 'symlink:blog'
+    - 'hexo:blog'
+    - 'copy:fontawesome'
+    - 'copy:blog_images'
     - 'connect:server'
     - 'watch:blog'
 
@@ -40,12 +29,14 @@ prod:
     - 'clean'
     - 'compass:home'
     - 'compass:blog'
-    - 'execute:metalsmith'
-    - 'rename:blog'
     - 'copy:fontawesome'
     - 'copy:opensans'
     - 'copy:bitter'
     - 'copy:statics'
+    - 'copy:blog_theme_layout'
+    - 'concat:blog'
+    - 'symlink:blog'
+    - 'hexo:blog'
     - 'uglify'
     - 'assemble:home'
     - 'sitemap'
@@ -55,14 +46,14 @@ prod:
     - 'resize_crop:meta'
 
 deploy:
-    - 'prod'
-    - 'chk'
+    - 'check'
     - 'compress'
     - 'aws_s3:clean'
     - 'aws_s3:prod'
     - 'cloudflare'
 
-chk:
+check:
+    - 'prod'
     - 'csslint'
     - 'htmlhint'
     - 'cssmetrics'
@@ -70,7 +61,3 @@ chk:
     - 'jasmine:home'
     - 'casper:home'
     - 'casper:links'
-
-check:
-    - 'prod'
-    - 'chk'

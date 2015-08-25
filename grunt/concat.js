@@ -12,6 +12,6 @@ module.exports = {
 	},
 	blog: {
 		src: '<%= blog.js %>',
-		dest: 'build/live/b/js/scripts.js'
+		dest: 'build/blog/themes/gonal/source/assets/js/scripts.js'
 	}
 };

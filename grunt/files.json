@@ -14,10 +14,22 @@
 			"js/home/form.js"
 		],
    		"blog3p": [
-			"bower_components/jquery/dist/jquery.js"
+			"bower_components/jquery/dist/jquery.js",
+            "bower_components/fancybox/source/jquery.fancybox.js",
+            "bower_components/fancybox/source/helpers/jquery.fancybox-thumbs.js"
 		],
 		"blog": [
-			"js/common/ga.js"
+			"js/blog/about.js",
+            "js/blog/archives-filter.js",
+            "js/blog/categories-filter.js",
+            "js/blog/fancybox.js",
+            "js/blog/header.js",
+            "js/blog/image-gallery.js",
+            "js/blog/post-bottom-bar.js",
+            "js/blog/share-options.js",
+            "js/blog/sidebar.js",
+            "js/blog/smartresize.js",
+            "js/blog/tags-filter.js"
 		],
         "engine": [
             "Gruntfile.js",
