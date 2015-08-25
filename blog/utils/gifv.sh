@@ -9,18 +9,19 @@ Version:   1.0.0
 Convert GIFs and videos into GIF-like videos
 
 Options: (all optional)
-  -c CROP:     The x and y crops, from the top left of the image (e.g. 640:480)
-  -o OUTPUT:   The basename of the file to be output. The default is the basename
-              of the input file.
-  -r FPS:      Output at this (frame)rate.
-  -s SPEED:    Output using this speed modifier. The default is 1 (equal speed).
-  -O OPTIMIZE: Change the compression level used (1-9), with 1 being the fastest,
-              with less compression, and 9 being the slowest, with optimal com-
-              pression.  The default compression level is 6.
-  -p SCALE:    Rescale the output (e.g. 320:240)
-  -a START:    Time for the video to start
-  -z END:      Number of seconds running
-  -x:          Remove the original file
+  -c CROP      The x and y crops, from the top left of the image (e.g. 640:480)
+  -o OUTPUT    The basename of the file to be output. The default is the basename
+               of the input file.
+  -r FPS       Output at this (frame)rate.
+  -s SPEED     Output using this speed modifier. The default is 1 (equal speed).
+  -O OPTIMIZE  Change the compression level used (1-9), with 1 being the fastest,
+               with less compression, and 9 being the slowest, with optimal com-
+               pression.  The default compression level is 6.
+  -p SCALE     Rescale the output (e.g. 320:240)
+  -a START     Time for the video to start
+  -z END       Number of seconds running
+  -t           Only test effect
+  -x           Remove the original file
 
 Example:
   gifv -c 240:80 -o my-gifv.mp4 -x my-movie.mov
@@ -37,7 +38,7 @@ level=8
 
 OPTERR=0
 
-while getopts "c:o:p:r:s:O:xa:z:h" opt; do
+while getopts "c:o:p:r:s:O:xa:z:ht" opt; do
   case $opt in
     c) crop=$OPTARG;;
     h) printHelpAndExit 0;;
@@ -47,6 +48,7 @@ while getopts "c:o:p:r:s:O:xa:z:h" opt; do
     s) speed=$OPTARG;;
     O) level=$OPTARG;;
     x) cleanup=1;;
+    t) testEffect=1;;
     a) ini=$OPTARG;;
     z) end=$OPTARG;;
     *) printHelpAndExit 1;;
@@ -134,11 +136,15 @@ optimize="${levels[$level]}"
 # libx264 .mp4 -preset slow -b:v 500k -maxrate 500k -bufsize 1000k -vf scale=-1:480 -threads 0 -an
 codec="-c:v libx264"
 ffmpeg -i "$filename" $ini $end $codec $filter $fps -an -pix_fmt yuv420p -threads 4 -qmin 10 -qmax 42 -bufsize 1200k -b:v 600k -maxrate 600k  -preset "$optimize" -movflags faststart "/tmp/$output.mp4"
-codec="-c:v libvpx"
-ffmpeg -i "$filename" $ini $end $codec $filter $fps -an -pix_fmt yuv420p -threads 0 -b:v 500k -maxrate 500k -bufsize 1000k  -preset "$optimize" -movflags faststart "/tmp/$output.webm"
+if [ $testEffect ]; then
+    mplayer /tmp/$output.mp4
+else
+    codec="-c:v libvpx"
+    ffmpeg -i "$filename" $ini $end $codec $filter $fps -an -pix_fmt yuv420p -threads 0 -b:v 500k -maxrate 500k -bufsize 1000k  -preset "$optimize" -movflags faststart "/tmp/$output.webm"
 
-s3cmd put -f --acl-public /tmp/$output.mp4 s3://v.gon.al/
-s3cmd put -f --acl-public /tmp/$output.webm s3://v.gon.al/
+    s3cmd put -f --acl-public /tmp/$output.mp4 s3://v.gon.al/
+    s3cmd put -f --acl-public /tmp/$output.webm s3://v.gon.al/
+fi
 
 rm -f /tmp/$output.mp4
 rm -f /tmp/$output.webm
