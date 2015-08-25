@@ -37,6 +37,7 @@ prod:
     - 'concat:blog'
     - 'symlink:blog'
     - 'hexo:blog'
+    - 'copy:blog_images'
     - 'uglify'
     - 'assemble:home'
     - 'sitemap'
