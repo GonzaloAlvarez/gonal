@@ -36,9 +36,12 @@ function join { local IFS="$1"; shift; echo "$*"; }
 levels=(ultrafast superfast veryfast faster fast medium slow slower veryslow)
 level=8
 
+BASE_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+FONTS_PATH="$BASE_PATH/../../bower_components/open-sans-fontface/fonts/Regular/"
+
 OPTERR=0
 
-while getopts "c:o:p:r:s:O:xa:z:ht" opt; do
+while getopts "c:o:p:r:s:O:xa:z:htS:" opt; do
   case $opt in
     c) crop=$OPTARG;;
     h) printHelpAndExit 0;;
@@ -46,6 +49,7 @@ while getopts "c:o:p:r:s:O:xa:z:ht" opt; do
     p) scale=$OPTARG;;
     r) fps=$OPTARG;;
     s) speed=$OPTARG;;
+    S) snapshottime=$OPTARG;;
     O) level=$OPTARG;;
     x) cleanup=1;;
     t) testEffect=1;;
@@ -86,6 +90,12 @@ else
   crop=
 fi
 
+if [ $snapshottime ]; then
+    snapshottimearg="-ss $snapshottime"
+else
+    snapshottimearg=
+fi
+
 if [ $scale ]; then
   scale="scale=${scale}"
 else
@@ -107,8 +117,13 @@ fi
 
 # Concatenate options into a video filter string
 # giffix must be applied after any scaling/cropping
-if [ $scale ] || [ $crop ] || [ $speed ] || [ $giffix ]; then
+onscreentext="This is a test"
+drawtext="drawtext=fontfile=$FONTS_PATH/OpenSans-Regular.ttf:text=$onscreentext:fontcolor=white:fontsize=24:x=(w-tw)/2:y=(h/PHI)+th"
+if [ $scale ] || [ $crop ] || [ $speed ] || [ $giffix ] || [ $onscreentext ]; then
   filter="-vf $(join , $scale $crop $speed $giffix)"
+#  if [ -n "$onscreentext" ]; then
+#      filter="$filter,$drawtext"
+#  fi
 else
   filter=
 fi
@@ -136,18 +151,28 @@ optimize="${levels[$level]}"
 # libx264 .mp4 -preset slow -b:v 500k -maxrate 500k -bufsize 1000k -vf scale=-1:480 -threads 0 -an
 codec="-c:v libx264"
 ffmpeg -i "$filename" $ini $end $codec $filter $fps -an -pix_fmt yuv420p -threads 4 -qmin 10 -qmax 42 -bufsize 1200k -b:v 600k -maxrate 600k  -preset "$optimize" -movflags faststart "/tmp/$output.mp4"
+ffmpeg -i "/tmp/$output.mp4" $snapshottimearg -y -f image2 -c:v png -vframes 1 /tmp/$output.png
 if [ $testEffect ]; then
     mplayer /tmp/$output.mp4
+    open /tmp/$output.png
+    sleep 1
 else
     codec="-c:v libvpx"
     ffmpeg -i "$filename" $ini $end $codec $filter $fps -an -pix_fmt yuv420p -threads 0 -b:v 500k -maxrate 500k -bufsize 1000k  -preset "$optimize" -movflags faststart "/tmp/$output.webm"
+    ffmpeg -i "/tmp/$output.mp4" -y -vf fps=10,scale=320:-1:flags=lanczos,palettegen /tmp/$output-palette.png
+    ffmpeg -i "/tmp/$output.mp4" -i "/tmp/$output-palette.png" -filter_complex "fps=10,scale=320:-1:flags=lanczos[x];[x][1:v]paletteuse" /tmp/$output.gif
 
     s3cmd put -f --acl-public /tmp/$output.mp4 s3://v.gon.al/
     s3cmd put -f --acl-public /tmp/$output.webm s3://v.gon.al/
+    s3cmd put -f --acl-public /tmp/$output.png s3://v.gon.al/
+    s3cmd put -f --acl-public /tmp/$output.gif s3://v.gon.al/
 fi
 
 rm -f /tmp/$output.mp4
 rm -f /tmp/$output.webm
+rm -f /tmp/$output-palette.png
+rm -f /tmp/$output.gif
+rm -f /tmp/$output.png
 
 if [ $cleanup ]; then
   rm "$filename"

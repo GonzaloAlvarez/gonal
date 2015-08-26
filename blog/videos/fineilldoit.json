@@ -4,5 +4,6 @@
     "starttime": "280",
     "endtime": "6.9",
     "crop": "500:300:10:10",
-    "scale": "-1:360"
+    "scale": "-1:360",
+    "snapshottime": "4.7"
 }

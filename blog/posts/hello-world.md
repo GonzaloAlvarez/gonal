@@ -9,9 +9,10 @@ tags:
 It's all about personal branding, [they say](http://chase-seibert.github.io/blog/2014/08/01/why-blogging.html). If you plan on having a career in the software industry, you'd better start blogging, [others may argue](http://emptysqua.re/blog/write-an-excellent-programming-blog/). 
 
 <center>
-    <video autoplay="" loop="" muted="">
+    <video autoplay="" loop="" muted="" poster="https://v.gon.al/fineilldoit.png">
         <source type="video/webm" src="https://v.gon.al/fineilldoit.webm">
         <source type="video/mp4" src="https://v.gon.al/fineilldoit.mp4">
+        <img src="https://v.gon.al/fineilldoit.gif" alt="Fine I'll do it" />
     </video>
 </center>
 
