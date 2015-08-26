@@ -7,17 +7,25 @@
 //
 
 var locationBase = 'file://' + casper.cli.options.basepath + '/';
-
+var locations = [locationBase + 'index.html'];
+var currentIndex = 0;
+var visitedLocations = ['https://gon.al'];
 
 casper.getLinks = function getLinks() {
     links = this.evaluate(function(locationBase) {
-        return [].map.call($('a'), function(link) {
+        return [].map.call(__utils__.findAll('a'), function(link) {
             var linkHref = link.getAttribute('href');
             if((/^http/).test(linkHref)) {
                 return linkHref;
             }
             if((/^mailto/).test(linkHref) || linkHref === '#' || !linkHref) {
                 return '#';
+            }
+            if (/^\//.test(linkHref)) {
+                linkHref = linkHref.substring(1);
+            }
+            if (/\/$/.test(linkHref)) {
+                linkHref = linkHref + 'index.html';
             }
             return locationBase + linkHref;
         }).filter(function(link) {
@@ -44,17 +52,36 @@ casper.visit = function visit(link) {
 }
 
 casper.crawl = function crawl() {
-    while((link = this.links.pop()) != null) {
+    while(this.links && (link = this.links.pop())) {
         if((/^http/).test(link)) {
-            this.visit(link);
+            if (visitedLocations.indexOf(link) === -1) {
+                this.visit(link);
+                visitedLocations.push(link);
+            }
+        } else {
+            if (locations.indexOf(link) === -1) {
+                if(! /\.pdf$/.test(link) && ! /\.xml$/.test(link)) {
+                    locations = locations.concat(link);
+                }
+            }
         }
     }
 }
 
-casper.start(locationBase + 'index.html');
-casper.then(casper.getLinks);
-casper.then(casper.crawl);
+function cycle() {
+    if (locations[currentIndex]) {
+        casper.start().thenOpen(locations[currentIndex]);
+        casper.then(casper.getLinks);
+        casper.then(casper.crawl);
+        casper.run(function() {
+            this.links = [];
+            this.clear();
+            currentIndex ++;
+            cycle();
+        });
+    } else {
+        casper.exit();
+    }
+}
 
-casper.run(function() {
-    this.exit();
-});
+cycle();
