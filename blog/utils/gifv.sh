@@ -161,10 +161,12 @@ else
     ffmpeg -i "$filename" $ini $end $codec $filter $fps -an -pix_fmt yuv420p -threads 0 -b:v 500k -maxrate 500k -bufsize 1000k  -preset "$optimize" -movflags faststart "/tmp/$output.webm"
     ffmpeg -i "/tmp/$output.mp4" -y -vf fps=10,scale=320:-1:flags=lanczos,palettegen /tmp/$output-palette.png
     ffmpeg -i "/tmp/$output.mp4" -i "/tmp/$output-palette.png" -filter_complex "fps=10,scale=320:-1:flags=lanczos[x];[x][1:v]paletteuse" /tmp/$output.gif
+    ffmpeg -i "/tmp/$output.mp4" $snapshottimearg -y -f image2 -c:v mjpeg -q:v 8 -vframes 1 /tmp/$output.jpg
 
     s3cmd put -f --acl-public /tmp/$output.mp4 s3://v.gon.al/
     s3cmd put -f --acl-public /tmp/$output.webm s3://v.gon.al/
     s3cmd put -f --acl-public /tmp/$output.png s3://v.gon.al/
+    s3cmd put -f --acl-public /tmp/$output.jpg s3://v.gon.al/
     s3cmd put -f --acl-public /tmp/$output.gif s3://v.gon.al/
 fi
 
@@ -173,6 +175,7 @@ rm -f /tmp/$output.webm
 rm -f /tmp/$output-palette.png
 rm -f /tmp/$output.gif
 rm -f /tmp/$output.png
+rm -f /tmp/$output.jpg
 
 if [ $cleanup ]; then
   rm "$filename"
