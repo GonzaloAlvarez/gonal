@@ -29,7 +29,8 @@
             "js/blog/share-options.js",
             "js/blog/sidebar.js",
             "js/blog/smartresize.js",
-            "js/blog/tags-filter.js"
+            "js/blog/tags-filter.js",
+            "js/blog/video.js"
 		],
         "engine": [
             "Gruntfile.js",

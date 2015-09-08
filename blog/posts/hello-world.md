@@ -12,7 +12,7 @@ It's all about personal branding, [they say](http://chase-seibert.github.io/blog
     <video autoplay="" loop="" muted="" poster="https://v.gon.al/fineilldoit.jpg">
         <source type="video/webm" src="https://v.gon.al/fineilldoit.webm">
         <source type="video/mp4" src="https://v.gon.al/fineilldoit.mp4">
-        <img src="https://v.gon.al/fineilldoit.gif" alt="Fine I'll do it" />
+        <img src="https://v.gon.al/fineilldoit.jpg" data-src="https://v.gon.al/fineilldoit.gif" alt="Fine I'll do it" />
     </video>
 </center>
 
