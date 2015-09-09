@@ -7,6 +7,7 @@ tags:
     - rant
 ---
 It's all about personal branding, [they say](http://chase-seibert.github.io/blog/2014/08/01/why-blogging.html). If you plan on having a career in the software industry, you'd better start blogging, [others may argue](http://emptysqua.re/blog/write-an-excellent-programming-blog/). 
+<!-- more -->
 
 <center>
     <video autoplay="" loop="" muted="" poster="https://v.gon.al/fineilldoit.jpg">
