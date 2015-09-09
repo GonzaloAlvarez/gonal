@@ -4,6 +4,10 @@
   "description": "GonzaloAlvarez.Es site",
   "author": "Gonzalo Alvarez",
   "license": "ISC",
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/GonzaloAlvarez/gonal"
+  },
   "hexo": {
     "version": "3.1.1"
   },
