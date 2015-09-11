@@ -20,6 +20,7 @@ Options: (all optional)
   -p SCALE     Rescale the output (e.g. 320:240)
   -a START     Time for the video to start
   -z END       Number of seconds running
+  -X TIME      Time when the snapshot will be taken.
   -t           Only test effect
   -x           Remove the original file
 
@@ -155,7 +156,7 @@ ffmpeg -i "/tmp/$output.mp4" $snapshottimearg -y -f image2 -c:v png -vframes 1 /
 if [ $testEffect ]; then
     mplayer /tmp/$output.mp4
     open /tmp/$output.png
-    sleep 1
+    sleep 5
 else
     codec="-c:v libvpx"
     ffmpeg -i "$filename" $ini $end $codec $filter $fps -an -pix_fmt yuv420p -threads 0 -b:v 500k -maxrate 500k -bufsize 1000k  -preset "$optimize" -movflags faststart "/tmp/$output.webm"
@@ -165,7 +166,6 @@ else
 
     s3cmd put -f --acl-public /tmp/$output.mp4 s3://v.gon.al/
     s3cmd put -f --acl-public /tmp/$output.webm s3://v.gon.al/
-    s3cmd put -f --acl-public /tmp/$output.png s3://v.gon.al/
     s3cmd put -f --acl-public /tmp/$output.jpg s3://v.gon.al/
     s3cmd put -f --acl-public /tmp/$output.gif s3://v.gon.al/
 fi
