@@ -16,6 +16,9 @@ var gaForm = function() {
 	var $success = $form.find('#cuSent');
 	var $valfail = $form.find('#cuValFail');
 	var $failure = $form.find('#cuSendFail');
+	var $nameField = $form.find('#cuName');
+	var $emailField = $form.find('#cuEmail');
+	var $messageField = $form.find('#cuMessage');
 	var $submitButton = $form.find('#cuSubmit');
 
 	$.validate({
@@ -41,7 +44,9 @@ var gaForm = function() {
 			$spinner.show();
 		} else if(st === 'success') {
 			$success.show();
-			$form.find("input[type=text], textarea").val("");
+            $nameField.val("");
+            $emailField.val("");
+            $messageField.val("");
 			setTimeout(function() {
 				changeStatus('normal');
 			},5000);
@@ -64,9 +69,9 @@ var gaForm = function() {
 		var contactForm = new ContactForm();
 		var data = {};
 
-		data.Name = $form.find('#cuName').val();
-		data.Email = $form.find('#cuEmail').val();
-		data.Message = $form.find('#cuMessage').val();
+		data.Name = $nameField.val();
+		data.Email = $emailField.val();
+		data.Message = $messageField.val();
 
 		contactForm.save(data, {
 			success: function() {
