@@ -1,6 +1,7 @@
-'use strict';
 
 hexo.extend.tag.register('svideo', function(args, content) {
+    'use strict';
+
     var videoname = args.shift();
     var alttext = args.join(' ');
     return '<center>' +

@@ -15,6 +15,9 @@ var browserCapabilities = function() {
 	return {
 		isSmallDevice: function() {
 			return !_isDesktopDevice;
-		}
+		},
+        isDesktop: function() {
+            return _isDesktopDevice;
+        }
 	};
 }();

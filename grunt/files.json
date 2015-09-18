@@ -11,7 +11,8 @@
 			"js/common/abtests.js",
 			"js/common/ga.js",
 			"js/common/nav.js",
-			"js/home/form.js"
+			"js/home/form.js",
+            "js/home/langton.js"
 		],
    		"blog3p": [
 			"bower_components/jquery/dist/jquery.js",
@@ -34,11 +35,9 @@
 		],
         "engine": [
             "Gruntfile.js",
-            "Phantom.js",
             "tasks/*.js",
-            "metalsmith/*.js",
             "grunt/*.js",
-            "Metalsmith.js"
+            "blog/scripts/*.js"
         ],
         "jasmine": {
             "src": [

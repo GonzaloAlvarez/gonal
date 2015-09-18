@@ -84,4 +84,19 @@ function cycle() {
     }
 }
 
+casper.options.stepTimeout = 10000;
+casper.options.pageSettings = {
+      "userAgent": 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.10 (KHTML, like Gecko) Chrome/23.0.1262.0 Safari/537.10',
+      "loadImages": false,
+      "loadPlugins": false,         
+      "webSecurityEnabled": false,
+      "ignoreSslErrors": true
+};
+
+casper.options.onStepTimeout = function(self, step) { 
+    this.clear();
+    this.page.stop();
+    this.echo("Request timed out",'WARNING');
+};
+
 cycle();

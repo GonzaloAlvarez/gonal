@@ -15,12 +15,12 @@ hexo.extend.helper.register('sgravatar', function(email, size) {
     var qd;
 
     if (size && typeof size === 'number') {
-        qd = {s: size}
+        qd = {s: size};
     }
 
     var str = 'https://secure.gravatar.com/avatar/' + crypto.createHash('md5').update(email).digest('hex');
     var qs = querystring.stringify(qd);
-    if (qs) str += '?' + qs;
+    if (qs) { str += '?' + qs; }
 
     return str;
 });
