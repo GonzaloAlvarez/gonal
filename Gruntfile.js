@@ -14,8 +14,14 @@ module.exports = function(grunt) {
 		data: {
 			pkg: grunt.file.readJSON('package.json'),
 			files: grunt.file.readJSON('grunt/files.json'),
-			aws: grunt.file.exists('aws-s3.json')? grunt.file.readJSON('aws-s3.json'): {},
-			cf: grunt.file.exists('cloudflare.json')? grunt.file.readJSON('cloudflare.json'): {}
+			aws: grunt.file.exists('aws-s3.json')? grunt.file.readJSON('aws-s3.json'): {
+                "AWSAccessKeyId" : process.env.AWS_AccessKey_Id,
+                "AWSSecretKey" : process.env.AWS_SecretKey
+            },
+			cf: grunt.file.exists('cloudflare.json')? grunt.file.readJSON('cloudflare.json'): {
+                "Email" : process.env.Cloudflare_Email,
+                "ApiKey" : process.env.Cloudflare_ApiKey
+            }
 		},
 		postProcess: function(config) {
 			config.home = {};

@@ -1,9 +1,15 @@
 language: node_js
 node_js:
-  - "0.11"
+- '0.11'
 before_script:
-  - gem update --system
-  - gem install compass
-  - npm install -g grunt-cli bower
-  - bower install
-script: "grunt check --verbose"
+- gem update --system
+- gem install compass
+- npm install -g grunt-cli bower
+- bower install
+script: grunt deploy
+env:
+  global:
+  - secure: pCHeliPLUfemQwycNCYQvj9qhtEdWyY/GkTzm5DGU7hrrx5V9KqrOzowI5ZuJTV5kwmx/Zy7wUfeurNXjKRg65sfnXDi3n/sNOv4Pa+tJEhFWe0/F83pMHxRK+fjCBTLjgqt6wxYDqw9nCIoOdcrpOhnW0tdmYA3ATpKXlGdzSk=
+  - secure: B3Cqxnm2ygNL1MZuvgC4MhangcxJMOadxaW+dUgiR47Cp3Ru8u6W8Dg7lf/m8s1PL3pleC4+EgOVcjFiZN+AfQrVLrnrnHGERSmQ85h/u5LwnCL/p1iDq4jd3IiCummha9jZD2K/7S/OAdYt0a4bce4YY/yHoyTryiOAY5npxfA=
+  - secure: nY3cSJOL1L+zgCv+G45Iyl06weDAbdR2DE6IvAET9+Ch8ue3sKzUDcluVXeXDK+QY5OhdgSAQeGPBCkGVTP/po0kBoYKD8eNXeuayyFUp/BD+BNrQ65lw8U1sJrHcLeSMjqWbIwNJgBPjK+plHDjuo6xRAThIxF/0oSMU1o2hQA=
+  - secure: gkoR4TmRzM6SZQpM+XHhSYm/2XNKgVD6T8YXHiZwty/bchDmyzWFcV2LbGgfCR1FBVVboyte+P/X/KJdgtx9funvEzyNG5PVbbdo9czxi0EG57uzXWuMo4uf3LTeBR8JyZlRT3ftyDTF1vLTdORe70wTYzaeqf1NTA+yrzibjoE=
