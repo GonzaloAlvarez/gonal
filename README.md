@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/GonzaloAlvarez/gonal.svg?branch=master)](https://travis-ci.org/GonzaloAlvarez/gonal)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 [![Built with Handlebars](http://pixel-cookers.github.io/built-with-badges/handlebars/handlebars-short.png)](http://handlebarsjs.com/)
+[![Codacy Badge](https://api.codacy.com/project/badge/788071fcd36840c2a069ec8f01722d4e)](https://www.codacy.com/app/gonzaloab/gonal)
 
 ## Scope
 Homepage for Gonzalo Alvarez - [gon.al](https://gon.al) and its blog [gon.al/b](https://gon.al/b/)
