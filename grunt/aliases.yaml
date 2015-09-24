@@ -55,6 +55,7 @@ deploy:
     - 'aws_s3:clean'
     - 'aws_s3:prod'
     - 'cloudflare'
+    - 'assemble:report'
 
 check:
     - 'prod'
