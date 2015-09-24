@@ -44,7 +44,7 @@ casper.visit = function visit(link) {
         } else if(response.status === 999 && link.indexOf('linkedin') > -1) {
             this.warn('Opening [' + link + '] returns 999 due to likedin filtering');
         } else if(response.status !== 200) {
-            this.die('Opening [' + link + '] has failed with response: ' + response.status, 1);
+            this.log('Opening [' + link + '] has failed with response: ' + response.status, 'error');
         } else {
             this.echo('Opening [' + link + '] has been successful.');
         }
