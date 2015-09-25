@@ -46,7 +46,7 @@ prod:
     - 'sitemap'
     - 'cssmin'
     - 'htmlmin'
-    - 'screenshot'
+    - 'screenshot:meta'
     - 'resize_crop:meta'
 
 deploy:

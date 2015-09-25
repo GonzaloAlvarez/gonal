@@ -30,5 +30,5 @@ module.exports = function(grunt) {
             config.blog.js = config.files.js.blog3p.concat(config.files.js.blog);
 		}
 	});
-    grunt.loadTasks('tasks');
+    grunt.loadTasks('grunt/tasks');
 };

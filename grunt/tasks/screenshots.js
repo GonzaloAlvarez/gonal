@@ -28,7 +28,10 @@ module.exports = function(grunt) {
 				});
 				page.open(srcUrl,function(status) {
 					setTimeout(function() {
-						page.render(screenshotPath, {format:'png'}, function(err){done(true);});
+						page.render(screenshotPath, {format:'png'}, function(err){
+                            grunt.log.ok('Snapshot taken and stored at ' + screenshotPath);
+                            done(true);
+                        });
 					}, 200);
 				});
 			});

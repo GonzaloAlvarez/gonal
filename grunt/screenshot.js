@@ -6,7 +6,7 @@
 // See: http://creativecommons.org/licenses/by-nc-nd/4.0/
 //
 module.exports = {
-	screenshot: {
+	meta: {
 		src: 'build/live/index.html',
 		dest: 'build/meta.png',
 		width: 1200,
