@@ -36,6 +36,7 @@
     "grunt-execute": "^0.2.2",
     "grunt-hexo": "^0.1.0",
     "grunt-htmlhint": "^0.4.1",
+    "grunt-mailgun": "^0.2.1",
     "grunt-pagespeed": "^0.3.0",
     "grunt-resize-crop": "0.0.1",
     "grunt-sitemap": "^1.2.0",

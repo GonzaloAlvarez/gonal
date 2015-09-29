@@ -21,6 +21,11 @@ module.exports = function(grunt) {
 			cf: grunt.file.exists('cloudflare.json')? grunt.file.readJSON('cloudflare.json'): {
                 "Email" : process.env.Cloudflare_Email,
                 "ApiKey" : process.env.Cloudflare_ApiKey
+            },
+            mailgun: grunt.file.exists('mailgun.json')? grunt.file.readJSON('mailgun.json'): {
+                "ApiKey" : process.env.Mailgun_ApiKey,
+                "Sender" : process.env.Mailgun_Sender,
+                "Recipient" : process.env.Mailgun_Recipient
             }
 		},
 		postProcess: function(config) {

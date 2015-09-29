@@ -49,16 +49,6 @@ prod:
     - 'screenshot:meta'
     - 'resize_crop:meta'
 
-deploy:
-    - 'check'
-    - 'compress'
-    - 'aws_s3:clean'
-    - 'aws_s3:prod'
-    - 'force:on'
-    - 'cloudflare'
-    - 'force:restore'
-    - 'assemble:report'
-
 check:
     - 'prod'
     - 'csslint'
@@ -70,3 +60,16 @@ check:
     - 'force:on'
     - 'casper:links'
     - 'force:restore'
+    - 'assemble:report'
+
+deploy:
+    - 'check'
+    - 'compress'
+    - 'aws_s3:clean'
+    - 'aws_s3:prod'
+    - 'force:on'
+    - 'cloudflare'
+    - 'force:restore'
+    - 'assemble:report'
+    - 'mailgun:report'
+
