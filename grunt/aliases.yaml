@@ -61,7 +61,6 @@ check:
     - 'force:on'
     - 'casper:links'
     - 'force:restore'
-    - 'assemble:report'
     - 'pagespeed:desktop'
     - 'pagespeed:mobile'
 
