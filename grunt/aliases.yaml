@@ -54,7 +54,9 @@ deploy:
     - 'compress'
     - 'aws_s3:clean'
     - 'aws_s3:prod'
+    - 'force:on'
     - 'cloudflare'
+    - 'force:restore'
     - 'assemble:report'
 
 check:
@@ -65,4 +67,6 @@ check:
     - 'jshint'
     - 'jasmine:home'
     - 'casper:home'
+    - 'force:on'
     - 'casper:links'
+    - 'force:restore'
