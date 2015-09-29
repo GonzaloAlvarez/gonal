@@ -30,6 +30,7 @@ blog:
 
 prod:
     - 'clean'
+    - 'gruntlog'
     - 'compass:home'
     - 'compass:blog'
     - 'copy:fontawesome'
@@ -61,6 +62,8 @@ check:
     - 'casper:links'
     - 'force:restore'
     - 'assemble:report'
+    - 'pagespeed:desktop'
+    - 'pagespeed:mobile'
 
 deploy:
     - 'check'
@@ -70,6 +73,8 @@ deploy:
     - 'force:on'
     - 'cloudflare'
     - 'force:restore'
+    - 'pagespeed:desktop'
+    - 'pagespeed:mobile'
     - 'assemble:report'
     - 'mailgun:report'
 
