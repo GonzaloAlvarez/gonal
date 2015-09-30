@@ -35,7 +35,7 @@
 		],
         "engine": [
             "Gruntfile.js",
-            "tasks/*.js",
+            "grunt/tasks/*.js",
             "grunt/*.js",
             "blog/scripts/*.js"
         ],

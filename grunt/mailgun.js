@@ -11,7 +11,7 @@ module.exports = {
             key: '<%= mailgun.ApiKey %>',
             sender: '<%= mailgun.Sender %>',
             recipient: '<%= mailgun.Recipient %>',
-            subject: 'Gon.al deployed - ',
+            subject: 'Gon.al deployed ',
             hideRecipient: true,
             preventThreading: true
         },
