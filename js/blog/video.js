@@ -6,7 +6,7 @@
 // See: http://creativecommons.org/licenses/by-nc-nd/4.0/
 //
 
-var videoAutoplay = function($) {
+(function($) {
     'use strict';
 
     var $firstVideo = $('video:first-of-type');
@@ -40,4 +40,4 @@ var videoAutoplay = function($) {
             $(this).replaceWith($img.get(0));
         });
     };
-}(jQuery);
+})(jQuery);
