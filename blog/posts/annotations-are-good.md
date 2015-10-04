@@ -1,5 +1,5 @@
 title: Annotations are good
-date: 2015/9/10 10:15:00
+date: 2015/9/20 10:15:00
 #categories:
 #    - spring
 #    - java
@@ -21,13 +21,44 @@ And that, kids, is mixing apples and oranges.
 
 {% svideo patrickstewardfacepalm %}
 
-I get it. You have a lot of frustration when using hibernate with annotations, and that's understandable. Others have recognize that is a pain. But I personally align with
-what Martin Fowler said years ago:
+I get it. You have a lot of frustration when using **hibernate** with annotations, and that's understandable. But by using annotations you are not mixing configuration with code or making your code less maintainable. This is just plainly stupid.
 
-{% blockquote ORM Hate, Martin Fowler http://martinfowler.com/bliki/OrmHate.html %}
+But you know what, you are not the first one claiming that annotations are pure evil. [Robin Sharp](https://web.archive.org/web/20060702222249/http://www.softwarereality.com/programming/annotations.jsp) posted the same useless shit back in 2005. An apocalyptic rant already 10 years ago based on the exact same ideas. But you are doing it really wrong by blaming annotations. Annotations are a very useful tool. Let me elaborate.
 
-Listening to some critics, you'd think that the best thing for a modern software developer to do is roll their own ORM. The implication is that tools like Hibernate and Active Record have just become bloatware, so you should come up with your own lightweight alternative. Now I've spent many an hour griping at bloatware, but ORMs really don't fit the bill - and I say this with bitter memory. For much of the 90's I saw project after project deal with the object/relational mapping problem by writing their own framework - it was always much tougher than people imagined. Usually you'd get enough early success to commit deeply to the framework and only after a while did you realize you were in a quagmire - this is where I sympathize greatly with Ted Neward's famous quote that object-relational mapping is the [Vietnam of Computer Science](http://blogs.tedneward.com/2006/06/26/The+Vietnam+Of+Computer+Science.aspx).
+Annotations were introduced first in [Java 5.0](https://docs.oracle.com/javase/1.5.0/docs/guide/language/annotations.html), and ever since its usage
+has grown significantly. The initial justification for them was the need to avoid boilerplate code. But they now have several uses, among which are:
 
+{% blockquote Annotations, Oracle https://docs.oracle.com/javase/tutorial/java/annotations/index.html %}
+* Provide information for the compiler
+* Compile time and Deployment time processing
+* Runtime Processing
 {% endblockquote %}
 
-But you are missing the point by blaming annotations. Annotations are very useful tool. Let me elaborate.
+Let's get more hands-on here. These are all great use of annotations:
+
+{% codeblock Hocus Pocus lang:java https://projectlombok.org/ Lombok Documentation %}
+@Data
+public class User {
+  private String username;
+  private String hash_password;
+  private List<Role> roles;
+}
+{% endcodeblock %}
+
+The **@Data** annotation allows us to have the following:
+* Getters and setters for all attributes
+* Equals function for the class User
+* HashCode function for the class User
+
+You can see the before and after in the [@Data](https://projectlombok.org/features/Data.html) documentation. And start using it. And enter a whole new world of wonders.
+
+{% svideo aladdinwow %}
+
+Some more examples of beautiful annotations for you to dive deep:
+* [Predefined Annotations](https://docs.oracle.com/javase/tutorial/java/annotations/predefined.html) - Basic Java Annotations
+* [JSR-330](https://docs.oracle.com/cd/E19798-01/821-1841/gjxvg/index.html) - Dependency injection
+* [JSR-311](http://download.oracle.com/otn-pub/jcp/jaxrs-1.0-fr-eval-oth-JSpec/jaxrs-1.0-final-spec.pdf?AuthParam=1443937300_ec5a28b1cefbc0110bcbe919270cb9f1) - REST Services
+
+And so many more that are pure gold. Not to mention any of the [Spring](https://spring.io/) annotations that are being widely used and remain extremely healthy.
+
+**TL;DR** - You can safely ignore those who say that annotations are killing java. They were wrong many years ago, and they still are. Annotations are great.
