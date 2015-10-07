@@ -20,8 +20,9 @@ hexo.extend.tag.register('svideo', function(args, content) {
         webMSource + mp4Source + innerImage);
 
     var titleDiv = '';
-    if (alternativeText.length > 0)
+    if (alternativeText.length > 0) {
         titleDiv = htmlTag('div', {'class': 'svtitle'}, alternativeText);
+    }
 
     return htmlTag('div', {'class':'svideo'}, videoTag + titleDiv);
 });
