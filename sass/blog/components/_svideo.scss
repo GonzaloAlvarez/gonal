@@ -1,0 +1,22 @@
+.svideo {
+    @media #{$small-and-down} {
+        width: 100%;
+    }
+    width: 70%;
+    height: auto;
+    margin: 1em auto;
+
+    .svtitle {
+        position: relative;
+        top: -3.8em;
+        color: white;
+        background: rgba(0,0,0,0.4);
+        padding-bottom: 0.2em;
+        padding-top: 0.4em;
+        overflow: hidden;
+        margin-top: 0;
+        font-size: 0.8em;
+        margin-bottom: -2em;
+        text-align: center;
+    }
+}
