@@ -20,7 +20,7 @@ Options: (all optional)
   -p SCALE     Rescale the output (e.g. 320:240)
   -a START     Time for the video to start
   -z END       Number of seconds running
-  -X TIME      Time when the snapshot will be taken.
+  -S TIME      Time when the snapshot will be taken.
   -t           Only test effect
   -x           Remove the original file
 
