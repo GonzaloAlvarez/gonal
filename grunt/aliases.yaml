@@ -61,8 +61,6 @@ check:
     - 'force:on'
     - 'casper:links'
     - 'force:restore'
-    - 'pagespeed:desktop'
-    - 'pagespeed:mobile'
 
 deploy:
     - 'check'
