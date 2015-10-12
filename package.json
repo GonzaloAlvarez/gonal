@@ -55,6 +55,7 @@
     "metalsmith-markdown": "^0.2.1",
     "metalsmith-templates": "^0.6.0",
     "moment": "^2.8.4",
+    "parse": "^1.6.5",
     "path": "^0.4.9",
     "phantom": "^0.7.1",
     "phantomjs": "^1.9.12"

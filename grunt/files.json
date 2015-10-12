@@ -3,7 +3,7 @@
 		"home3p": [
 			"bower_components/jquery/dist/jquery.js",
 			"bower_components/jquery-form-validator/form-validator/jquery.form-validator.js",
-			"js/lib/parse-1.3.1.js"
+            "node_modules/parse/dist/parse-latest.js"
 		],
 		"home": [
 			"js/common/parse.js",
