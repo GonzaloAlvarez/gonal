@@ -42,7 +42,7 @@ FONTS_PATH="$BASE_PATH/../../bower_components/open-sans-fontface/fonts/Regular/"
 
 OPTERR=0
 
-while getopts "c:o:p:r:s:O:xa:z:htS:" opt; do
+while getopts "c:o:p:r:s:O:xCa:z:htS:" opt; do
   case $opt in
     c) crop=$OPTARG;;
     h) printHelpAndExit 0;;
@@ -54,6 +54,7 @@ while getopts "c:o:p:r:s:O:xa:z:htS:" opt; do
     O) level=$OPTARG;;
     x) cleanup=1;;
     t) testEffect=1;;
+    C) directCopy=1;;
     a) ini=$OPTARG;;
     z) end=$OPTARG;;
     *) printHelpAndExit 1;;
@@ -151,7 +152,11 @@ optimize="${levels[$level]}"
 # libvpx .webm -cpu-used 0 -b:v 600k -maxrate 600k -bufsize 1200k -qmin 10 -qmax 42 -vf scale=-1:360 -vf crop=620:340:10:10 -threads 4 -an
 # libx264 .mp4 -preset slow -b:v 500k -maxrate 500k -bufsize 1000k -vf scale=-1:480 -threads 0 -an
 codec="-c:v libx264"
-ffmpeg -i "$filename" $ini $end $codec $filter $fps -an -pix_fmt yuv420p -threads 4 -qmin 10 -qmax 42 -bufsize 1200k -b:v 600k -maxrate 600k  -preset "$optimize" -movflags faststart "/tmp/$output.mp4"
+if [ $directCopy ]; then
+    cp "$filename" "/tmp/$output.mp4"
+else
+    ffmpeg -i "$filename" $ini $end $codec $filter $fps -an -pix_fmt yuv420p -threads 4 -qmin 10 -qmax 42 -bufsize 1200k -b:v 600k -maxrate 600k  -preset "$optimize" -movflags faststart "/tmp/$output.mp4"
+fi
 ffmpeg -i "/tmp/$output.mp4" $snapshottimearg -y -f image2 -c:v png -vframes 1 /tmp/$output.png
 if [ $testEffect ]; then
     mplayer /tmp/$output.mp4

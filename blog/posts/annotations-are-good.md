@@ -21,10 +21,11 @@ While people say – it’s easier to read the Code, it’s easier to debug the 
 
 I get it. You have a lot of frustration when using **hibernate** with annotations, and that's understandable. But by using annotations you are not mixing configuration with code or making your code less maintainable. If something, you are making it more flexible and readable, hence more maintainable.
 
-But you know what, you are not the first one claiming that annotations are pure evil. [Robin Sharp](https://web.archive.org/web/20060702222249/http://www.softwarereality.com/programming/annotations.jsp) posted the same empty concept back in 2005. An apocalyptic rant already 10 years ago based on the exact same ideas. But you are doing it really wrong by blaming annotations. Annotations are a very useful tool. Let me elaborate.
+Let me show you some great examples of annotations.
 
-Annotations were introduced first in [Java 5.0](https://docs.oracle.com/javase/1.5.0/docs/guide/language/annotations.html), and ever since its usage
-has grown significantly. The initial justification for them was the need to avoid boilerplate code. And that particular reason is beautifully shown with Lombok:
+## Lombok
+
+Project lombok is a great boilerplate code generator that uses annotations to remove the need to add common methods, such as getters, setters or hash/equals.
 
 {% codeblock Hocus Pocus lang:java https://projectlombok.org/ Lombok Documentation %}
 @Data
@@ -41,11 +42,94 @@ You can see the full before and after in the [@Data](https://projectlombok.org/f
 
 {% svideo aladdinwow A whole new world of wonders ahead! %}
 
-Some more examples of beautiful annotations for you to dive deep:
-* [Predefined Annotations](https://docs.oracle.com/javase/tutorial/java/annotations/predefined.html) - Basic Java Annotations
-* [JSR-330](https://docs.oracle.com/cd/E19798-01/821-1841/gjxvg/index.html) - Dependency injection
-* [JSR-311](http://download.oracle.com/otn-pub/jcp/jaxrs-1.0-fr-eval-oth-JSpec/jaxrs-1.0-final-spec.pdf?AuthParam=1443937300_ec5a28b1cefbc0110bcbe919270cb9f1) - REST Services
+## @Override
 
-And so many more that are pure gold. Not to mention any of the [Spring](https://spring.io/) annotations that are being widely used and remain extremely healthy.
+Another key annotation very widely used in the OO programming with Java is the @Override annotation.
 
-**TL;DR** - You can safely ignore those who say that annotations are killing java. They were wrong many years ago, and they still are. Annotations are great.
+{% codeblock @Override %}
+public interface Vehicle {
+  public int getNumberOfWheels();
+}
+
+public class Car implements Vehicle {
+
+  @Override
+  public int getNumberOfWheels() {
+    return 4;
+  }
+}
+{% endcodeblock %}
+
+The @Override annotation here has two important usages. First, it will let us know if we made a mistake while naming the function 'getNumberOfWheels' in the class. And second, if the interface changes for whatever the reason, it will notify us of that change, to ensure that we are aware of it.
+
+The @Override annotation is simply critical when you use external 3rd party libraries that you want to keep updated from time to time.
+
+## JUnit
+
+Not sure if you test your code, but if you don't I don't wanna know. No, seriously, test your code.
+
+{% svideo thumbsuppoehler Promise me you will use unit tests%}
+
+Anyways, if you test your code with unit tests (please, please, do), you've probably stumbled across the @Test annotation. And maybe the @Before. And if you are fairly savvy, you are even aware of the existence of @Ignore.
+
+There are plenty of tutorials on how to use JUnit all over the web ([Vogella](http://www.vogella.com/tutorials/JUnit/article.html), [Mkyong](http://www.mkyong.com/tutorials/junit-tutorials/)). Here a very simple example:
+
+{% codeblock JUnit %}
+public class CarTests {
+
+  @Test
+  public void getNumberOfWheelsTest() {
+    Car carTest = new Car();
+    int wheels = carTest.getNumberOfWheels();
+
+    assertEquals(4, wheels);
+  }
+}
+{% endcodeblock %}
+
+## Spring JavaConfig
+
+And we get to the core of the issue here: JavaConfig. Spring, as you may know, is (among other things) a dependency injection framework, so we can make use of the inversion of control principle. Anyways, even if you don't know that, the idea is that Spring allows you to setup some objects in memory that can be instantiated upon need (</oversimplification>).
+
+In order to define those objects, called beans, you usually had to write fairly complex XML files pointing to fully qualified class names that would use other class names to work. This is extremely error prone. Let me show you an example of the legacy XML documantion:
+
+{% codeblock Spring XML Documentation %}
+<beans>
+    <!-- first, define your individual @Configuration classes as beans -->
+    <bean class="com.myapp.config.AppConfig"/>
+    <bean class="com.myapp.config.DataConfig"/>
+
+    <!-- be sure to include the JavaConfig bean post-processor -->
+    <bean class="org.springframework.config.java.process.ConfigurationPostProcessor"/>
+</beans>
+{% endcodeblock %}
+
+Now, this all changed with Spring 3, where JavaConfig showed up as a game changer. Before you had to start up your application to see if there was an error in your (xml-based) configuration. With annotations, the IDE would tell you if you made a mistake. Let's see how it looks with annotations:
+
+{% codeblock Spring XML Documentation %}
+@Configuration
+public class DataSourceConfig {
+    @Bean
+    public DataSource dataSource() {
+        return new DriverManagerDataSource(...);
+    }
+}
+
+@Configuration
+@AnnotationDrivenConfig
+@Import(DataSourceConfig.class)
+public class AppConfig extends ConfigurationSupport {
+    @Autowired DataSourceConfig dataSourceConfig;
+
+    @Bean
+    public void TransferService transferService() {
+        return new TransferServiceImpl(dataSourceConfig.dataSource());
+    }
+}
+{% endcodeblock %}
+
+How beautiful is that. You create all your configuration using annotations, so you are sure you don't make any mistakes because otherwise your IDE will let you know. That is simply amazing, if you ask me. Not to mention that you can now start using @Inject or @Named.
+
+## Conclusion
+
+Annotations are here to stay. They do a lot of things, and some of them may not be perfect, but there is no reason to hate them, or to claim that they are killing Java. Find out for yourself if you want to be making your code flexible and powerful, or you rather discuss about abstract arguable concepts.
